@@ -1,4 +1,4 @@
-import time
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
@@ -6,7 +6,7 @@ import os
 from tqdm import tqdm
 #빼도됨, 나중에 오래걸릴때 혹시몰라서 넣어둠
 from pprint import pprint
-from src import user
+import user
 
 
 
@@ -31,9 +31,9 @@ class Resource_test:
 
         # 여기서 부터 본격 적인 가용 데이터 제작
         # path에 따른 파라미터 나눠야함 정확히는 payload?
-        get_url = csv_data['url'].to_list()
+        get_url = csv_data['URL'].to_list()
         self.url = get_url[0]
-        get_port = csv_data['port'].to_list()
+        get_port = csv_data['Port'].to_list()
         self.port = get_port[0]
 
         get_Path_list = csv_data['Path'].to_list()
@@ -51,15 +51,25 @@ class Resource_test:
         #pprint(self.parameter_list)
         #parameter list = {'path':[], 'path2':[]}
 
-    def check_path_trav(self):
+    def check_path_trav():
         Chrome = webdriver.Chrome()
+        url = f"http://{self.url}:{self.port}"
+        Chrome.get(url)
+        user.login(Chrome, self.j_id, self.j_pw)
+        sleep(2)
+
+
         for path in self.path_list:
-            url = f"{self.url}:{self.port}"
-            user.login(Chrome, self.j_id, self.j_pw)
+            url = f"http://{self.url}:{self.port}{path}"
+            print(f"URL = {url}")
+            Chrome.get(url)
+            print("success")
+            log = Chrome.get_issue_message()
+            print(log)
 
     def check_param(self):
         Chrome = webdriver.Chrome()
         user.login(Chrome, self.j_id, self.j_pw)
 
 R = Resource_test()
-R.check_path()
+R.check_path_trav()
