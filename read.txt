@@ -1,0 +1,45 @@
+작성자 : 취약점 분석 트랙 김재환
+!!필수!!
+chromedriver.exe
+path.txt
+
+#Chrome driver 다운받는곳
+
+1. 검색창에 chrome://version 입력
+> 맨위에 버전 나온거 긁어주기 ex)106.0.5249.103
+2. https://chromedriver.chromium.org/downloads에서 버전에 맞는 driver다운
+3. python이 존재하는 폴더에 압축 풀어주기( 이렇게 안할꺼면 코드 절대경로로 수정)
+
+#모듈 (cmd or shell)
+pip install selenium
+pip install By
+pip install pandas
+pip install tqdm
+
+
+#사용법
+세팅이 끝났다면 실행시키고
+
+1. Input = url, port 입력
+>www.google.com,8080 이런식으로, 띄어쓰기 없이 http붙이지 말고(수정할까 생각해보니깐 다른 프로토콜 쓸수도 있네)
+> 각자 jenkins ip, port 넣어주면 되겠쥬?
+
+2. Input id/pw = id,pw 입력
+>root,toor 이런식으로, 각자 jenkins아이디, 비번 입력하면 됨
+
+3. 파일이 있을경우 덮어쓰기 할꺼냐고 물어볼꺼임
+> 알아서
+
+#결과
+> Scanning_result_{jenkinsid}.csv 파일
+- url
+- port
+- path
+- id
+- pw
+- parameter
+- data_type( 추가 예정이라 더미값 넣어둠)
+
+등이 담긴 파일이 나옴
+
+수고링
