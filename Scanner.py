@@ -1,10 +1,11 @@
 #Scanner for Fuzzer
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
 import os
 from tqdm import tqdm #빼도됨, 나중에 오래걸릴때 혹시몰라서 넣어둠
-
 
 
 class Scanner:
@@ -71,6 +72,9 @@ class Scanner:
                 self.result_Frame.append(row_data)
                     #@todo 여기 필터링 어떤식으로 만들지 정해야함
 
+            Chrome.close()
+            time.sleep(1)
+
 
     # 이중배열에 원소로 배열을 넣어줬으니 만들어진 배열을 DataFrame 형식으로 만들어서 csv로 출력함 출력할 원소 수정하려면 70번째줄이랑 같이 수정해야함
     def result_to_csv(self):
@@ -79,14 +83,22 @@ class Scanner:
         DataFrame = pd.DataFrame(self.result_Frame, columns=col)
 
         #파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임
-        file = os.listdir("./")
+        pwd_csv = os.listdir()
         result_file = f"Scanning_result_{self.j_id}.csv"
+        if "csv" not in pwd_csv:
+            try:
+                os.system("mkdir csv")
+            except:
+                print("Your os is linux")
+                os.system("mkdir csv")
+
+        file = os.listdir("./csv/")
         while True:
             if result_file in file:
                 choice = input(f"{result_file} 이 존재합니다. 덮어 씌울까요? y/n\ny/n = ")
                 if choice=='y':
                     try:
-                        DataFrame.to_csv(f"Scanning result_{self.j_id}.csv")
+                        DataFrame.to_csv(f"./csv/Scanning result_{self.j_id}.csv")
                         break
                         print("success")
                     except:
@@ -98,7 +110,7 @@ class Scanner:
                 else:
                     print("wrong! chose y or n")
             else:
-                DataFrame.to_csv(f"Scanning_result_{self.j_id}.csv")
+                DataFrame.to_csv(f"./csv/Scanning_result_{self.j_id}.csv")
                 print("success")
                 break
 
