@@ -1,4 +1,3 @@
-/manage/configure
 /manage/script
 /manage/scriptApproval
 /manage/securityRealm/
@@ -7,3 +6,4 @@
 /manage/securityRealm/user/hong/delete
 /manage/systemInfo
 /manage/threadDump
+/manage/configure

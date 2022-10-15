@@ -1,20 +1,14 @@
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import pandas as pd
-import os
-from tqdm import tqdm
 #빼도됨, 나중에 오래걸릴때 혹시몰라서 넣어둠
+from src.func import *
 from pprint import pprint
-import user
 
 
-
-class Resource_test:
+class query:
     def __init__(self):
         csv_list = os.listdir('./csv/')
         # 파일에 있는 기존 csv데이터를 가지고 옴
         try:
+            id ,pw = 'root','toor' #default
             id, pw = map(str, input("Input ID,PW  ex)root,toor\nInput = ").split(','))
             self.j_id = id
             self.j_pw = pw
@@ -48,28 +42,16 @@ class Resource_test:
         print("self.path_list")
         for i in range(len(self.path_list)):
             self.parameter_list[self.path_list[i]] = csv_data[csv_data['Path'] == self.path_list[i]]['Parameter'].to_list()
-        #pprint(self.parameter_list)
-        #parameter list = {'path':[], 'path2':[]}
+        #parameter_list = {'path':[], 'path2':[]}
 
-    def check_path_trav():
-        Chrome = webdriver.Chrome()
-        url = f"http://{self.url}:{self.port}"
-        Chrome.get(url)
-        user.login(Chrome, self.j_id, self.j_pw)
-        sleep(2)
-
-
-        for path in self.path_list:
-            url = f"http://{self.url}:{self.port}{path}"
-            print(f"URL = {url}")
-            Chrome.get(url)
-            print("success")
-            log = Chrome.get_issue_message()
-            print(log)
+    def print_check_list(self):
+        print("===============================PATH=======================================")
+        pprint(self.path_list)
+        print("============================PATH : Param==================================")
+        pprint(self.parameter_list)
 
     def check_param(self):
         Chrome = webdriver.Chrome()
-        user.login(Chrome, self.j_id, self.j_pw)
+        Chrome.get(f"http://{self.url}:{self.port}")
+        login(Chrome, self.j_id, self.j_pw)
 
-R = Resource_test()
-R.check_path_trav()
