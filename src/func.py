@@ -4,7 +4,13 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import pandas as pd
 import os
 from time import sleep
-import json
+from webdriver_manager.chrome import ChromeDriverManager
+
+def check_driver():
+    print("Chrome이 업데이트 되었거나, Chrome 웹 드라이버가 존재하지 않습니다. 다운을 시작합니다.")
+    ChromeDriverManager().install()
+    print(" 다운이 완료되었습니다. 경로 : c:/{사용자}/.wdm/drivers/chromedriver/win32")
+
 
 def login(Chrome, id,pw):
     try:

@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import pandas as pd
 import os
 from tqdm import tqdm #빼도됨, 나중에 오래걸릴때 혹시몰라서 넣어둠
-from src.func import login, check_path, check_dir, check_csv_file
+from src.func import login, check_path, check_dir, check_csv_file,check_driver
 from src.Scan_filter import *
 
 class Scanner:
@@ -39,14 +39,19 @@ class Scanner:
         self.j_id = id
         self.j_pw = pw
         self.parameter = []
-        self.result_Frame = [] #이중 배열로 만들어질 예정, [[url,port.....],[url,port.....]] 이런식으로 Frame에 요소로 배열을 전달해서 한줄씩 추가함
+        self.result_Frame=[] #이중 배열로 만들어질 예정, [[url,port.....],[url,port.....]] 이런식으로 Frame에 요소로 배열을 전달해서 한줄씩 추가함
         self.result_ACL_PATH = []
         self.data_type = "text"
         #@todo 데이터 타입에 뭘 넣어서 테스트 해야할 수 있을지 생각해 봐야함(type이 text여도 url형식인게 있음)
 
     def get_all_param(self):
         #초기 로그인
-        Chrome = webdriver.Chrome()
+        try:
+            Chrome = webdriver.Chrome()
+
+        except:
+            check_driver()
+
         url = f"http://{self.url}:{self.port}"
         Chrome.get(url)
         login(Chrome, self.j_id, self.j_pw)
@@ -59,15 +64,17 @@ class Scanner:
             Chrome.get(payload)
 
             #PATH에 접근 가능한지 확인
-            status_response = check_path(Chrome)
-            ACL_PATH = [self.url, self.port, self.path[i], self.j_id, status_response]
-            self.result_ACL_PATH.append(ACL_PATH)
-
+            try:
+                status_response = check_path(Chrome)
+                ACL_PATH = [self.url, self.port, self.path[i], self.j_id, status_response]
+                self.result_ACL_PATH.append(ACL_PATH)
+            except:
+                print("too long runtime")
 
             #input tag가 존재하는 곳에서의 모든 name을 가져옴으로 서 기본 입력 파라미터 조사 가능
-            row_data = get_all_param(Chrome,payload,self.port,self.path[i],self.j_id,self.j_pw)
-            self.result_Frame.append(row_data)
-                    #@todo 여기 필터링 어떤식으로 만들지 정해야함
+            row_data = get_all_param(Chrome,self.url,self.port,self.path[i],self.j_id,self.j_pw,self.data_type)
+            self.result_Frame+=row_data
+
 
 
     def result_to_csv(self):

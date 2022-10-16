@@ -3,7 +3,7 @@
 /manage/securityRealm/
 /manage/securityRealm/user/admin/configure
 /manage/securityRealm/user/admin/
-/manage/securityRealm/user/hong/delete
 /manage/systemInfo
 /manage/threadDump
+/manage/securityRealm/user/hong/delete
 /manage/configure
