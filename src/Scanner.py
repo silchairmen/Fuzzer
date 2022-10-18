@@ -36,7 +36,7 @@ class Scanner:
         #환경구성을 vm에 분할하여서 vm번호로 csv 파일에 생성예장
         while True:
             vm_num = int(input("VM 번호를 입력해 주세요 숫자만!\nInput = "))
-            if vm_num>1:
+            if type(vm_num)!=int:
                 print("숫자만 입력해주세요.")
             else:
                 break
