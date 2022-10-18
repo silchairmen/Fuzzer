@@ -33,6 +33,13 @@ class Scanner:
                 break
             except:
                 print("형식에 맞춰서 넣어주세요 Ex) Input = root,toor")
+        #환경구성을 vm에 분할하여서 vm번호로 csv 파일에 생성예장
+        while True:
+            vm_num = int(input("VM 번호를 입력해 주세요 숫자만!\nInput = "))
+            if vm_num>1:
+                print("숫자만 입력해주세요.")
+            else:
+                break
 
         self.url = url
         self.port = port
@@ -42,8 +49,11 @@ class Scanner:
         self.result_Frame=[] #이중 배열로 만들어질 예정, [[url,port.....],[url,port.....]] 이런식으로 Frame에 요소로 배열을 전달해서 한줄씩 추가함
         self.result_ACL_PATH = []
         self.data_type = "text"
+        self.vm_num = vm_num
         #@todo 데이터 타입에 뭘 넣어서 테스트 해야할 수 있을지 생각해 봐야함(type이 text여도 url형식인게 있음)
 
+
+    #파라미터를 전부 가져옴 (form 태그를 통하여 전송되는 데이터)
     def get_all_param(self):
         #초기 로그인
         try:
@@ -52,29 +62,35 @@ class Scanner:
         except:
             check_driver()
 
-        url = f"http://{self.url}:{self.port}"
-        Chrome.get(url)
-        login(Chrome, self.j_id, self.j_pw)
+        #접근할 url 설정
+        try:
+            url = f"http://{self.url}:{self.port}"
+            Chrome.get(url)
+        except:
+            print("login fail")
 
-        #path.txt에서 path 하나 잡고 Payload 작성
+        #path.txt에서 path 설정 후 수집 시작
         for i in tqdm(range(len(self.path)), mininterval=0.1):
             payload = f"http://{self.url}:{self.port}{self.path[i]}"
             print(payload)
             sleep(1)
-            Chrome.get(payload)
+            try:
+                Chrome.get(payload)
+                login(Chrome,self.j_id,self.j_pw)
+            except:
+                print("Connection fail, time out error")
 
-            #PATH에 접근 가능한지 확인
+            #PATH에 id로 접근 후, javascript를 통한 respones 값 받아옴, wired_selenium으로도 가능하지만 현재 코드 수정할 시간이 없어서 일단락
             try:
                 status_response = check_path(Chrome)
                 ACL_PATH = [self.url, self.port, self.path[i], self.j_id, status_response]
                 self.result_ACL_PATH.append(ACL_PATH)
+                row_data = get_all_param(Chrome, self.url, self.port, self.path[i], self.j_id, self.j_pw, self.data_type)
+                self.result_Frame += row_data
+
             except:
                 print("too long runtime")
-
-            #input tag가 존재하는 곳에서의 모든 name을 가져옴으로 서 기본 입력 파라미터 조사 가능
-            row_data = get_all_param(Chrome,self.url,self.port,self.path[i],self.j_id,self.j_pw,self.data_type)
-            self.result_Frame+=row_data
-
+            #input tag가 존재하는 곳에서의 모든 name을 가져옴으로 서 기본 입력 파라미터 조사 가
 
 
     def result_to_csv(self):
@@ -86,14 +102,12 @@ class Scanner:
         DataFrame2 = pd.DataFrame(self.result_ACL_PATH, columns=ACL_PATH_col)
 
         #파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임
-        check_dir("../csv", "./")
+        check_dir("csv")
 
-        result_file = f"Scanning_result_{self.j_id}.csv"
-        result_file2 = f"Check_Path_{self.j_id}.csv"
+        result_file = f"Scanning_result_vm{self.vm_num}_{self.j_id}.csv"
+        result_file2 = f"Check_Path_vm{self.vm_num}_{self.j_id}.csv"
 
         file_list = os.listdir("./csv/")
 
         check_csv_file(DataFrame, result_file,file_list)
         check_csv_file(DataFrame2, result_file2, file_list)
-
-#클래스 선언하고 함수 실행시킴, 이것마저도 안에 넣고싶으면 넣으면 되긴하는데 개인적으로 이건 빼두는게 낫지 않을까 싶어요 ㅎㅎ;

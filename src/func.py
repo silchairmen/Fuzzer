@@ -1,7 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-import pandas as pd
 import os
 from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
@@ -19,6 +17,7 @@ def login(Chrome, id,pw):
         sleep(1)
         Chrome.find_element(By.NAME, 'Submit').click()
         print(f"유저 : {id} 비밀번호 : {pw} 로그인 성공")
+        Chrome.find_element(By.ID, 'remember_me').click()
     except:
         print(f"유저 : {id} 비밀번호 : {pw} 로그인 실패")
 
@@ -34,13 +33,14 @@ def check_path(chrome):
     return response
 
 
-def check_dir(dir_name, path):
+def check_dir(dir_name):
+    path = os.listdir("./")
     if dir_name not in path:
         try:
-            os.system(f"mkdir {path}{dir_name}")
+            os.system(f"mkdir ./{dir_name}")
         except:
             print("Your os is linux")
-            os.system(f"mkdir {path}{dir_name}")
+            os.system(f"mkdir ./{dir_name}")
 
 
 def check_csv_file(Frame_name, file_name, file_list):

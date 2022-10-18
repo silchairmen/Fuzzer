@@ -1,6 +1,6 @@
-#빼도됨, 나중에 오래걸릴때 혹시몰라서 넣어둠
 from src.func import *
 from pprint import pprint
+import pandas as pd
 
 
 class query:
@@ -10,9 +10,10 @@ class query:
         try:
             id ,pw = 'root','toor' #default
             id, pw = map(str, input("Input ID,PW  ex)root,toor\nInput = ").split(','))
+            self.vm_num = int(input("input the vm number(only number!!!! ex) 1 )\ninput = "))
             self.j_id = id
             self.j_pw = pw
-            self.file_name = f"./csv/Scanning_result_{self.j_id}.csv"
+            self.file_name = f"Scanning_result_vm{self.vm_num}_{self.j_id}.csv"
 
             csv_data = pd.read_csv(self.file_name)
         except:
@@ -44,12 +45,14 @@ class query:
             self.parameter_list[self.path_list[i]] = csv_data[csv_data['Path'] == self.path_list[i]]['Parameter'].to_list()
         #parameter_list = {'path':[], 'path2':[]}
 
+    #만약 자신이 테스트할 path와 path에서 보낼 수 있는 파라미터를 확인해보고 싶다면 사용
     def print_check_list(self):
         print("===============================PATH=======================================")
         pprint(self.path_list)
         print("============================PATH : Param==================================")
         pprint(self.parameter_list)
 
+    #여기서 부터 퍼져 만들기, 정확히는 테스트 스크립트
     def check_param(self):
         Chrome = webdriver.Chrome()
         Chrome.get(f"http://{self.url}:{self.port}")
