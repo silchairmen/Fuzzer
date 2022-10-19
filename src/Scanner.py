@@ -55,24 +55,26 @@ class Scanner:
 
     #파라미터를 전부 가져옴 (form 태그를 통하여 전송되는 데이터)
     def get_all_param(self):
-        #초기 로그인
+        #초기 크롬 창 생성, 크롬 드라이버가 있는지 확인
         try:
             Chrome = webdriver.Chrome()
 
         except:
-            check_driver()
+            chrome_driver = check_driver()
+            Chrome = webdriver.Chrome(chrome_driver)
 
         #접근할 url 설정
         try:
             url = f"http://{self.url}:{self.port}"
             Chrome.get(url)
+            login(Chrome,self.j_id,self.j_pw, "first_login")
         except:
             print("login fail")
 
         #path.txt에서 path 설정 후 수집 시작
         for i in tqdm(range(len(self.path)), mininterval=0.1):
             payload = f"http://{self.url}:{self.port}{self.path[i]}"
-            print(payload)
+            print(payload+"\n")
             sleep(1)
             try:
                 Chrome.get(payload)

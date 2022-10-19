@@ -5,21 +5,28 @@ from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
 
 def check_driver():
-    print("Chrome이 업데이트 되었거나, Chrome 웹 드라이버가 존재하지 않습니다. 다운을 시작합니다.")
-    ChromeDriverManager().install()
-    print(" 다운이 완료되었습니다. 경로 : c:/{사용자}/.wdm/drivers/chromedriver/win32")
+    print("Chrome 정보를 확인합니다..")
+    chrome_driver = ChromeDriverManager().install()
+    print(" Chrome 정보. 경로 : c:/{사용자}/.wdm/drivers/chromedriver/win32")
+    return chrome_driver
 
-
-def login(Chrome, id,pw):
-    try:
+def login(Chrome, id, pw, option):
+    if option=='first_login':
+        try:
+            Chrome.find_element(By.NAME, 'j_username').send_keys(id)
+            Chrome.find_element(By.NAME, 'j_password').send_keys(pw)
+            sleep(1)
+            Chrome.find_element(By.NAME, 'Submit').click()
+            print(f"유저 : {id} 비밀번호 : {pw} 로그인 성공")
+            #Chrome.find_element(By.ID, 'remember_me').click()
+        except:
+            print(f"유저 : {id} 비밀번호 : {pw} 로그인 실패")
+            exit(-1)
+    else:
         Chrome.find_element(By.NAME, 'j_username').send_keys(id)
         Chrome.find_element(By.NAME, 'j_password').send_keys(pw)
         sleep(1)
         Chrome.find_element(By.NAME, 'Submit').click()
-        print(f"유저 : {id} 비밀번호 : {pw} 로그인 성공")
-        Chrome.find_element(By.ID, 'remember_me').click()
-    except:
-        print(f"유저 : {id} 비밀번호 : {pw} 로그인 실패")
 
 
 def check_path(chrome):
@@ -37,10 +44,11 @@ def check_dir(dir_name):
     path = os.listdir("./")
     if dir_name not in path:
         try:
-            os.system(f"mkdir ./{dir_name}")
+            print(f"{dir_name}이 존재하지 않습니다... 생성합니다.....\n")
+            os.system(f"mkdir {dir_name}")
+            print("생성되었습니다.\n")
         except:
-            print("Your os is linux")
-            os.system(f"mkdir ./{dir_name}")
+            print("permission error")
 
 
 def check_csv_file(Frame_name, file_name, file_list):
@@ -62,5 +70,5 @@ def check_csv_file(Frame_name, file_name, file_list):
                 print("wrong! chose y or n")
         else:
             Frame_name.to_csv(f"./csv/{file_name}")
-            print("success")
+            print(f"<{file_name}> is created")
             break
