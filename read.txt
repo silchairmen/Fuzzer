@@ -1,7 +1,8 @@
 작성자 : 취약점 분석 트랙 김재환
 !!필수!!
-chromedriver.exe
+chromedriver.exe -> 자동화해둠 근데 안될땐 설치하기
 path.txt
+user_info.txt -> 헤더정보 짤때 필요함 -> 구글에서 my user-agent 치면 나오는데 그거 복사해서 텍스트 파일에 넣어두셈
 
 #Chrome driver 다운받는곳
 

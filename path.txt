@@ -1,4 +1,6 @@
-/sse-gateway/connect
-/user/pm/descriptorByName/hudson.model.TimeZoneProperty/checkTimeZoneName
-/$stapler/bound/ad741648-7ff0-43fd-8eef-300112184128/render
-/$stapler/bound/5e6dbdba-e960-4501-b78c-3be9bca07b34/render
+/job/spring/12/delete-log/
+/job/spring/11/delete-log/
+/job/spring/10/delete-log/
+/job/spring/9/delete-log/
+/job/spring/8/delete-log/
+

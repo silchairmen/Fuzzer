@@ -3,41 +3,50 @@ from selenium.webdriver.common.by import By
 import os
 from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
+import requests as req
+from bs4 import BeautifulSoup
 
+
+#request 헤더 구성을 위하여 에이전트 정보를 가져옵니다
+def get_agent_info(chrome):
+    try:
+        print("에이전트정보를 가져옵니다. href = www.whatismybrowser.com")
+        chrome.get("https://www.whatismybrowser.com/detect/what-is-my-user-agent/")
+        agent = chrome.find_element(By.ID, 'detected_value')
+        agent_info = agent.text
+        return agent_info
+
+    except:
+        agent_info = input("에이전트 정보를 불러올 수 없습니다. 브라우저 에이전트 정보를 직접 입력해 주세요\nAgent = ")
+        return agent_info
+
+
+#드라이버가 있는지 없는지 파악하고, 있다면 경로를 반환합니다. 없으면 다운로드하고 경로를 반환합니다.
 def check_driver():
     print("Chrome 정보를 확인합니다..")
     chrome_driver = ChromeDriverManager().install()
-    print(" Chrome 정보. 경로 : c:/{사용자}/.wdm/drivers/chromedriver/win32")
+    print(f" Chrome 정보. 경로 : {chrome_driver}")
     return chrome_driver
 
+
+#기본적으로 젠킨스 사이트에 로그인하는 함수, selenium을 사용하여 직접적으로 접근함
 def login(Chrome, id, pw, option):
     if option=='first_login':
         try:
             Chrome.find_element(By.NAME, 'j_username').send_keys(id)
             Chrome.find_element(By.NAME, 'j_password').send_keys(pw)
-            sleep(1)
             Chrome.find_element(By.NAME, 'Submit').click()
             print(f"유저 : {id} 비밀번호 : {pw} 로그인 성공")
             #Chrome.find_element(By.ID, 'remember_me').click()
-        except:
-            print(f"유저 : {id} 비밀번호 : {pw} 로그인 실패")
-            exit(-1)
+        except Exception as e:
+            print(f"유저 : {id} 비밀번호 : {pw} 로그인 실패" + str(e))
     else:
         Chrome.find_element(By.NAME, 'j_username').send_keys(id)
         Chrome.find_element(By.NAME, 'j_password').send_keys(pw)
-        sleep(1)
+        sleep(0.5)
         Chrome.find_element(By.NAME, 'Submit').click()
 
-
-def check_path(chrome):
-    #페이지 상태 추출
-    js = """
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', window.location.href, false);xhr.send(null);
-        return xhr.status
-    """
-    response = chrome.execute_script(js)
-    return response
+#셀레니움에서 js로 접근해서
 
 
 def check_dir(dir_name):
@@ -72,3 +81,16 @@ def check_csv_file(Frame_name, file_name, file_list):
             Frame_name.to_csv(f"./csv/{file_name}")
             print(f"<{file_name}> is created")
             break
+
+def get_session(Chrome, user_agent):
+    session = req.session()
+    headers = {
+        "User-Agent" : user_agent
+    }
+    session.headers.update(headers)
+
+    for cookie in Chrome.get_cookies():
+        c = {cookie['name']:cookie['value']}
+        session.cookies.update(c)
+
+    return session
