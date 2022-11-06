@@ -1,6 +1,2 @@
-/job/spring/12/delete-log/
-/job/spring/11/delete-log/
-/job/spring/10/delete-log/
-/job/spring/9/delete-log/
-/job/spring/8/delete-log/
-
+/bulkbuilder/
+/job/test1/templateTest/

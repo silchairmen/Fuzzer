@@ -84,6 +84,8 @@ def get_post_input(Chrome, url, port, path,id, pw):
                     button_type = button.get_attribute("type")
                     #[url, port, id, pw, path, action, value, value_type or name]
                     #[                                 button, submit           ]
+                    if action.endswith("\n"):
+                        action = action[:-1]
                     row_data = [url, port, id, pw, path, action, "button", button_type]
                     row_result.append(row_data)
 

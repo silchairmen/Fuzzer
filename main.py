@@ -1,7 +1,7 @@
 from src.Scanner import Scanner as scan
 from src.exploit import make_query_exploit as exploit
 from pprint import pprint
-
+from src.build_option_handler import build_option
 
 if __name__ == "__main__":
 
@@ -28,7 +28,9 @@ if __name__ == "__main__":
         print("Fuzzer start Choose number\n"
               "!notice = you have to scan first before you start Fuzzing!")
         print("Number 1 = Scanner\n"
-              "number 2 = Fuzzing and extract data to csv\n")
+              "Number 2 = Fuzzing and extract data to csv\n"
+              "Number 3 = Add all option on build")
+
 
         num = int(input("Number : "))
 
@@ -75,14 +77,11 @@ if __name__ == "__main__":
             else:
                 print("wrong input")
 
+        elif num==3:
+            build_option = build_option()
+            build_option.build_option_add()
+            break
+
         else:
             print("only number")
 
-
-#    s = scan()
-#    s.get_post_param()
-#    s.result_get_post_param_to_csv()
-
-    ex = exploit()
-    ex.csrf_protection_check()
-    ex.csrf_protection_check_to_csv()

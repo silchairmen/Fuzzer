@@ -58,6 +58,8 @@ def Csrf_protection_check(chrome, url, port, id, pw, path, action, value, value_
     #세션을 가져옴
         session = get_session(chrome, user_agent)
         payload = action
+        if "http" not in payload:
+            payload = uri+payload
         exploit_data = {key:value}
 
         #파라미터 날려보고 response 받음, 근데 delete같이 페이지를 삭제하면 404떠서 dummy값 날림
