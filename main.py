@@ -2,6 +2,8 @@ from src.Scanner import Scanner as scan
 from src.exploit import make_query_exploit as exploit
 from pprint import pprint
 from src.build_option_handler import build_option
+from selenium import webdriver
+from src.func import *
 
 if __name__ == "__main__":
 
@@ -78,8 +80,13 @@ if __name__ == "__main__":
                 print("wrong input")
 
         elif num==3:
-            build_option = build_option()
-            build_option.build_option_add()
+            chrome = webdriver.Chrome(check_driver())
+            url = "192.168.139.128"
+            port = "8080"
+            id,pw = "admin", "admin"
+            jobname = "test1"
+            build_option = build_option(chrome,url,port,id,pw,jobname)
+            build_option.delete_all_options()
             break
 
         else:

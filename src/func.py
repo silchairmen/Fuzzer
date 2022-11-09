@@ -94,3 +94,81 @@ def get_session(Chrome, user_agent):
         session.cookies.update(c)
 
     return session
+
+
+#========================================================build_option===========================================================
+
+
+def get_add_build_option_button(chrome):
+    button = chrome.find_elements(By.TAG_NAME, "button")
+
+    for btn in button:
+        if btn.get_attribute("class") == "hetero-list-add" and btn.get_attribute("suffix") == "builder":
+            build_add_btn = btn
+            return build_add_btn
+
+    print("fail to get build_add button")
+
+
+
+def get_add_after_build_button(chrome):
+    button = chrome.find_elements(By.TAG_NAME, "button")
+
+    for btn in button:
+        if btn.get_attribute("class") == "hetero-list-add" and btn.get_attribute("suffix") == "publisher":
+            add_build_after_btn = btn
+            return add_build_after_btn
+
+    print("fail to get after_build button")
+
+def get_submit_and_apply_button(chrome):
+    button = chrome.find_elements(By.TAG_NAME, "button")
+    save_btn = None
+    apply_btn = None
+    for btn in button:
+        if btn.get_attribute("innerHTML") == 'Apply':
+            apply_btn = btn
+        elif btn.get_attribute("innerHTML") == ('저장' or "save"):
+            save_btn = btn
+
+    if save_btn is None or apply_btn is None:
+        print("fail to get apply button")
+
+    return save_btn, apply_btn
+
+
+def scroll_to_bottom(chrome):
+    script = """
+        window.scrollTo(0, document.body.scrollHeight)
+    """
+    chrome.execute_script(script)
+
+def scroll_to_element(chrome,element):
+    script = """
+        arguments[0].scrollIntoView({ block: "center" });
+    """
+    chrome.execute_script(script, element)
+
+#에러 핸들링
+def jenkins_error_alert(chrome):
+    #새로운 창이 뜨는 에러
+    check_error = chrome.find_element(By.CLASS_NAME, "shadow").get_attribute("style")[:19]
+
+    #alert로 뜨는 경우
+    notify = chrome.find_element(By.ID, "notification-bar")
+    notify_text = notify.find_element(By.TAG_NAME, "span").get_attribute("innerHTML")
+
+    if check_error == 'visibility: visible':
+        print("error, show the log")
+        chrome.find_element(By.CLASS_NAME, "container-close").click()
+        sleep(1)
+        error_status = True
+
+    elif notify_text!="Saved":
+        print("alert is not 'Saved'")
+        error_status = True
+
+    else:
+        error_status = False
+
+    return error_status
