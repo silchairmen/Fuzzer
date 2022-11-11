@@ -1,25 +1,10 @@
+import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
 from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
 import requests as req
-from bs4 import BeautifulSoup
-
-
-#request 헤더 구성을 위하여 에이전트 정보를 가져옵니다
-def get_agent_info(chrome):
-    try:
-        print("에이전트정보를 가져옵니다. href = www.whatismybrowser.com")
-        chrome.get("https://www.whatismybrowser.com/detect/what-is-my-user-agent/")
-        agent = chrome.find_element(By.ID, 'detected_value')
-        agent_info = agent.text
-        return agent_info
-
-    except:
-        agent_info = input("에이전트 정보를 불러올 수 없습니다. 브라우저 에이전트 정보를 직접 입력해 주세요\nAgent = ")
-        return agent_info
-
 
 #드라이버가 있는지 없는지 파악하고, 있다면 경로를 반환합니다. 없으면 다운로드하고 경로를 반환합니다.
 def check_driver():
@@ -27,6 +12,17 @@ def check_driver():
     chrome_driver = ChromeDriverManager().install()
     print(f" Chrome 정보. 경로 : {chrome_driver}")
     return chrome_driver
+
+
+def get_user_agent_info():
+    try:
+        with open("./user_info.txt","r") as user_info:
+            agent = user_info.readlines()
+    except:
+        print("user_info.txt 파일에 user agent정보를 넣어주세요")
+        exit(-1)
+
+    return agent[0]
 
 
 #기본적으로 젠킨스 사이트에 로그인하는 함수, selenium을 사용하여 직접적으로 접근함
@@ -48,6 +44,13 @@ def login(Chrome, id, pw, option):
 
 #셀레니움에서 js로 접근해서
 
+def check_file_exist(file_name):
+    files = os.listdir("./")
+    if file_name in files:
+        return True
+    else:
+        return False
+
 
 def check_dir(dir_name):
     path = os.listdir("./")
@@ -60,13 +63,19 @@ def check_dir(dir_name):
             print("permission error")
 
 
-def check_csv_file(Frame_name, file_name, file_list):
+def make_csv_file(col_name, low_data, file_name):
     while True:
+        #받아온 데이터로 데이터 프레임을 만든다
+        Data_frame = pd.DataFrame(low_data, columns=col_name)
+
+        check_dir("csv")
+        file_list = os.listdir("./csv/")
+
         if file_name in file_list:
             choice = input(f"{file_name} 이 존재합니다. 덮어 씌울까요? y/n\ny/n = ")
             if choice == 'y':
                 try:
-                    Frame_name.to_csv(f"./csv/{file_name}")
+                    Data_frame.to_csv(f"./csv/{file_name}")
                     break
                     print("success")
                 except:
@@ -78,7 +87,7 @@ def check_csv_file(Frame_name, file_name, file_list):
             else:
                 print("wrong! chose y or n")
         else:
-            Frame_name.to_csv(f"./csv/{file_name}")
+            Data_frame.to_csv(f"./csv/{file_name}")
             print(f"<{file_name}> is created")
             break
 
