@@ -10,8 +10,7 @@ class Scanner:
         #해당 디렉터리에서 path.txt를 읽어와서 Path를 List 형태로 저장
         try:
             check_dir('path')
-            os.chdir('./path')
-            path_txt = f"path_vm{vm_num}"
+            path_txt = f"./path/path_vm{vm_num}.txt"
 
             with open(path_txt,"r") as f:
                 self.path = f.readlines()
@@ -47,12 +46,11 @@ class Scanner:
         #path.txt에서 path 설정 후 수집 시작
         for i in tqdm(range(len(self.path)), mininterval=0.1):
             payload = f"http://{self.url}:{self.port}{self.path[i]}"
-            print(payload+"\n")
             sleep(1)
             try:
                 self.chrome.get(payload)
-                login(self.chrome,self.j_id,self.j_pw)
             except:
+                login(self.chrome, self.j_id, self.j_pw)
                 print("Connection fail, time out error")
 
             try:
@@ -60,16 +58,17 @@ class Scanner:
                 #input 태그로 모든 파라미터 긁어옴
                 row_data = filter.get_all_param(self.chrome, self.url, self.port, self.path[i], self.j_id, self.j_pw)
                 self.result_Frame += row_data
-                Param_col = ['URL', 'Port', 'Jenkins_id', 'jenkins.pw','Method', 'Action', 'Path', 'Parameter', 'Data_type',
-                             'Class name']
-
-                # 파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임
-
-                result_file_name = f"Scanning_all_param_result_vm{self.vm_num}_{self.j_id}.csv"
-                make_csv_file(Param_col, self.result_Frame, result_file_name)
 
             except:
                 print("too long runtime")
+
+        Param_col = ['URL', 'Port', 'Jenkins_id', 'jenkins.pw', 'Method', 'Action', 'Path', 'Parameter', 'Data_type',
+                     'Class name', "Value"]
+
+        # 파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임
+
+        result_file_name = f"Scanning_all_param_result_vm{self.vm_num}_{self.j_id}.csv"
+        make_csv_file(Param_col, self.result_Frame, result_file_name)
 
     #PATH 경로를 전부다 들어가서 response code를 가져옴
     def get_response(self):

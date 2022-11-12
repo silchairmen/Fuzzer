@@ -1,2 +1,0 @@
-/bulkbuilder/
-/job/test1/templateTest/

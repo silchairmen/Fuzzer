@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
     try:
         print("Get Chrome browser.....")
-        chrome = webdriver.Chrome(check_driver(), options=options)
+        chrome = webdriver.Chrome(check_driver(),options=options)
         print("Chrome browser is ready")
     except Exception as e:
         print(f"!Error : {e}")
@@ -97,9 +97,10 @@ if __name__ == "__main__":
 
         if tool_option ==1:
             s = scan(chrome,url, port,id,pw,vm_num)
-            S_options = int(input("1.Get all parameter"
-                                  "2.Get response"
-                                  "3.Get post_parameter"))
+            S_options = int(input("1.Get all parameter\n"
+                                  "2.Get response\n"
+                                  "3.Get post_parameter\n"
+                                  "Number = "))
 
             if S_options==1:
                 s.get_all_param()
@@ -112,7 +113,7 @@ if __name__ == "__main__":
                 break
 
         elif tool_option == 2:
-            e = exploit(chrome,url,vm_num,id,pw)
+            e = exploit(chrome,url,port,vm_num,id,pw)
             E_options = int(input("1. CSRF protection check"
                                   "2. Reflected xss check"
                                   "Number = "))
