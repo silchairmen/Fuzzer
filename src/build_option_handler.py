@@ -111,5 +111,6 @@ class build_option:
                 except:
                     pass
         submit_btn, apply_btn = get_submit_and_apply_button(chrome)
-        submit_btn.click()
+        apply_btn.click()
+        sleep(1)
         print("options are deleted")

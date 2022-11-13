@@ -5,6 +5,8 @@ import os
 from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
 import requests as req
+from time import time
+import json
 
 #드라이버가 있는지 없는지 파악하고, 있다면 경로를 반환합니다. 없으면 다운로드하고 경로를 반환합니다.
 def check_driver():
@@ -23,6 +25,38 @@ def get_user_agent_info():
         exit(-1)
 
     return agent[0]
+
+def get_r_session_crumb(session, url, port):
+
+    get_crumb_url = f'http://{url}:{port}/crumbIssuer/api/json'
+    Jenkins_crumb_json = session.get(get_crumb_url, cookies=(session.cookies.get_dict()))
+    Jenkins_crumb_json = json.loads(Jenkins_crumb_json.text)
+
+    set_data = {}
+
+    crumb = Jenkins_crumb_json['crumb']
+    set_data["Jenkins-Crumb"] = Jenkins_crumb_json['crumb']
+
+    return crumb
+
+def r_login(session, url, port, id, pw):
+    first_url = f'http://{url}:{port}/login?from=%2F'
+    login_url = f'http://{url}:{port}/j_spring_security_check'
+    session.get(first_url)
+    login_data = {
+        "j_username": id,
+        "j_password": pw,
+        "from" : "/",
+        "Submit" : ""
+    }
+    session.post(login_url, data = login_data)
+
+    return session
+
+def job_build_launch(session, build_url, crumb):
+    session.post(build_url, data = {"Jenkins-Crumb" : crumb})
+    sleep(5)
+
 
 
 #기본적으로 젠킨스 사이트에 로그인하는 함수, selenium을 사용하여 직접적으로 접근함

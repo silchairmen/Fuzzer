@@ -73,6 +73,9 @@ if __name__ == "__main__":
             except:
                 print("형식에 맞춰서 넣어주세요 Ex) Input = 3-1,test1")
 
+    else:
+        exit(0)
+
     agent = get_user_agent_info()
 
     options = webdriver.ChromeOptions()
@@ -113,15 +116,21 @@ if __name__ == "__main__":
                 break
 
         elif tool_option == 2:
-            e = exploit(chrome,url,port,vm_num,id,pw)
-            E_options = int(input("1. CSRF protection check"
-                                  "2. Reflected xss check"
+            e = exploit(chrome,url,port,vm_num,id,pw,job_name)
+            E_options = int(input("1. CSRF protection check\n"
+                                  "2. Reflected xss check\n"
+                                  "3. Stored xss check\n"
+                                  "4. XXE Check\n"
                                   "Number = "))
 
             if E_options==1:
                 e.csrf_protection_check()
             elif E_options==2:
                 e.reflected_xss_check()
+            elif E_options==3:
+                print("준비중")
+            elif E_options==4:
+                e.xxe_vlun_check()
             else:
                 print("Closing......")
                 break

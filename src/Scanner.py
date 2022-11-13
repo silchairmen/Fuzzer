@@ -62,7 +62,7 @@ class Scanner:
             except:
                 print("too long runtime")
 
-        Param_col = ['URL', 'Port', 'Jenkins_id', 'jenkins.pw', 'Method', 'Action', 'Path', 'Parameter', 'Data_type',
+        Param_col = ['URL', 'Port', 'Jenkins_id', 'jenkins.pw', 'Method', 'Path','Action', 'Parameter', 'Data_type',
                      'Class name', "Value"]
 
         # 파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임

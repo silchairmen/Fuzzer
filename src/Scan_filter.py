@@ -18,7 +18,7 @@ def get_all_param(Chrome, url, port, path,id, pw):
         for el in input_tag:
             #데이터 포멧
             if el.get_attribute("name") not in ignore_list:
-                row_data = [url, port, id, pw, form.get_attribute("method"), form.get_attribute("action"), path, el.get_attribute("name"), el.get_attribute('type'), el.get_attribute('class'), el.get_attribute('value')]
+                row_data = [url, port, id, pw, form.get_attribute("method"), path,form.get_attribute("action"), el.get_attribute("name"), el.get_attribute('type'), el.get_attribute('class'), el.get_attribute('value')]
                 row_result.append(row_data)
             else:
                 continue
