@@ -1,0 +1,1876 @@
+{
+    "enable": true,
+    "description": "",
+    "properties": {
+        "stapler-class-bag": "true",
+        "org-jenkinsci-plugins-authorizeproject-ConfigurationPermissionEnforcer": {
+            "stapler-class": "org.jenkinsci.plugins.authorizeproject.ConfigurationPermissionEnforcer",
+            "$class": "org.jenkinsci.plugins.authorizeproject.ConfigurationPermissionEnforcer"
+        },
+        "hudson-plugins-jira-JiraProjectProperty": {
+            "siteName": ""
+        },
+        "hudson-plugins-buildblocker-BuildBlockerProperty": {
+            "useBuildBlocker": false,
+            "blockingJobs": "",
+            "blockLevel": "global",
+            "scanQueueFor": "disabled"
+        },
+        "com-nirima-jenkins-plugins-docker-DockerJobProperty": {
+            "specified": false,
+            "additionalTag": "",
+            "cleanImages": true
+        },
+        "com-nirima-jenkins-plugins-docker-DockerJobTemplateProperty": {
+            "specified": false,
+            "cloudname": "",
+            "template": {
+                "labelString": "",
+                "disabled": {
+                    "enabledByChoice": false,
+                    "disabledBySystem": false,
+                    "whenDisabledBySystemString": "",
+                    "whenReEnableBySystemString": "",
+                    "reasonWhyDisabledBySystem": "",
+                    "exceptionWhenDisabledBySystemString": ""
+                },
+                "name": "",
+                "dockerTemplateBase": {
+                    "image": "",
+                    "includeUser": "false",
+                    "pullCredentialsId": "",
+                    "dockerCommand": "",
+                    "hostname": "",
+                    "user": "",
+                    "extraGroupsString": "",
+                    "dnsString": "",
+                    "network": "",
+                    "mountsString": "",
+                    "volumesFromString": "",
+                    "devicesString": "",
+                    "environmentsString": "",
+                    "bindPorts": "",
+                    "bindAllPorts": false,
+                    "memoryLimit": "",
+                    "memorySwap": "",
+                    "cpus": "",
+                    "cpuPeriod": "",
+                    "cpuQuota": "",
+                    "cpuShares": "",
+                    "shmSize": "",
+                    "privileged": false,
+                    "securityOptsString": "",
+                    "capabilitiesToAddString": "",
+                    "capabilitiesToDropString": "",
+                    "tty": false,
+                    "macAddress": "",
+                    "extraHostsString": "",
+                    "extraDockerLabelsString": ""
+                },
+                "instanceCapStr": "",
+                "remoteFs": "",
+                "mode": "NORMAL",
+                "retentionStrategy": {
+                    "idleMinutes": "10"
+                },
+                "": "0",
+                "connector": {
+                    "user": "",
+                    "javaExe": "",
+                    "jvmArgsString": "",
+                    "entryPointCmdString": "",
+                    "stapler-class": "io.jenkins.docker.connector.DockerComputerAttachConnector",
+                    "$class": "io.jenkins.docker.connector.DockerComputerAttachConnector"
+                },
+                "stopTimeout": "10",
+                "removeVolumes": false,
+                "pullStrategy": "PULL_ALWAYS",
+                "pullTimeout": "300"
+            }
+        },
+        "com-coravy-hudson-plugins-github-GithubProjectProperty": {},
+        "com-dabsquared-gitlabjenkins-connection-GitLabConnectionProperty": {
+            "hasCustomWorkspace": false,
+            "customWorkspace": "",
+            "gitLabConnection": "",
+            "useAlternativeCredential": false,
+            "includeUser": "false",
+            "jobCredentialId": ""
+        },
+        "com-chikli-hudson-plugin-naginator-NaginatorOptOutProperty": {
+            "optOut": false
+        },
+        "hudson-plugins-copyartifact-CopyArtifactPermissionProperty": {},
+        "se-diabol-jenkins-pipeline-PipelineProperty": {
+            "enabled": false,
+            "stageName": "",
+            "taskName": "",
+            "descriptionTemplate": ""
+        },
+        "hudson-plugins-promoted_builds-JobPropertyImpl": {},
+        "com-sonyericsson-rebuild-RebuildSettings": {
+            "autoRebuild": false,
+            "rebuildDisabled": false
+        },
+        "org-jenkins-plugins-lockableresources-RequiredResourcesProperty": {},
+        "hudson-plugins-throttleconcurrents-ThrottleJobProperty": {
+            "throttleEnabled": false,
+            "throttleOption": "project",
+            "maxConcurrentTotal": "0",
+            "maxConcurrentPerNode": "0",
+            "limitOneJobWithMatchingParams": false,
+            "paramsToUseForLimit": ""
+        },
+        "jenkins-branch-RateLimitBranchProperty$JobPropertyImpl": {},
+        "org-jenkinsci-plugins-envinject-EnvInjectJobProperty": {
+            "on": false,
+            "keepJenkinsSystemVariables": true,
+            "keepBuildVariables": true,
+            "overrideBuildParameters": false,
+            "info": {
+                "propertiesFilePath": "",
+                "propertiesContent": "",
+                "scriptFilePath": "",
+                "scriptContent": "",
+                "secureGroovyScript": {
+                    "oldScript": "",
+                    "script": "",
+                    "sandbox": false
+                },
+                "loadFilesFromMaster": false
+            }
+        },
+        "hudson-plugins-jobConfigHistory-JobLocalConfiguration": {
+            "changeReasonComment": ""
+        },
+        "jenkins-model-BuildDiscarderProperty": {
+            "specified": false,
+            "": "0",
+            "strategy": {
+                "daysToKeepStr": "",
+                "numToKeepStr": "",
+                "artifactDaysToKeepStr": "",
+                "artifactNumToKeepStr": "",
+                "stapler-class": "hudson.tasks.LogRotator",
+                "$class": "hudson.tasks.LogRotator"
+            }
+        },
+        "hudson-model-ParametersDefinitionProperty": {
+            "specified": false
+        }
+    },
+    "concurrentBuild": false,
+    "hasCustomQuietPeriod": false,
+    "quiet_period": "5",
+    "hasCustomScmCheckoutRetryCount": false,
+    "scmCheckoutRetryCount": "0",
+    "blockBuildWhenUpstreamBuilding": false,
+    "blockBuildWhenDownstreamBuilding": false,
+    "hasCustomWorkspace": false,
+    "customWorkspace": "",
+    "displayNameOrNull": "",
+    "scm": {
+        "value": "0",
+        "stapler-class": "hudson.scm.NullSCM",
+        "$class": "hudson.scm.NullSCM"
+    },
+    "org-jenkinsci-plugins-buildnamesetter-BuildNameSetter": {
+        "template": "#${BUILD_NUMBER} \"\"<UNIQ>",
+        "descriptionTemplate": "",
+        "runAtStart": true,
+        "runAtEnd": true
+    },
+    "builder": [
+        {
+            "stapler-class": "org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder",
+            "$class": "org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder",
+            "": [
+                "0",
+                "0",
+                "0"
+            ],
+            "condition": {
+                "stapler-class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun",
+                "$class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun"
+            },
+            "runner": {
+                "stapler-class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail",
+                "$class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail"
+            },
+            "buildStep": {
+                "dockerTemplate": {
+                    "labelString": "",
+                    "disabled": {
+                        "enabledByChoice": false,
+                        "disabledBySystem": false,
+                        "whenDisabledBySystemString": "",
+                        "whenReEnableBySystemString": "",
+                        "reasonWhyDisabledBySystem": "",
+                        "exceptionWhenDisabledBySystemString": ""
+                    },
+                    "name": "docker",
+                    "dockerTemplateBase": {
+                        "image": "",
+                        "includeUser": "false",
+                        "pullCredentialsId": "",
+                        "dockerCommand": "",
+                        "hostname": "",
+                        "user": "",
+                        "extraGroupsString": "",
+                        "dnsString": "",
+                        "network": "",
+                        "mountsString": "",
+                        "volumesFromString": "",
+                        "devicesString": "",
+                        "environmentsString": "",
+                        "bindPorts": "",
+                        "bindAllPorts": false,
+                        "memoryLimit": "",
+                        "memorySwap": "",
+                        "cpus": "",
+                        "cpuPeriod": "0",
+                        "cpuQuota": "0",
+                        "cpuShares": "",
+                        "shmSize": "",
+                        "privileged": false,
+                        "securityOptsString": "",
+                        "capabilitiesToAddString": "",
+                        "capabilitiesToDropString": "",
+                        "tty": false,
+                        "macAddress": "",
+                        "extraHostsString": "",
+                        "extraDockerLabelsString": ""
+                    },
+                    "instanceCapStr": "",
+                    "remoteFs": "",
+                    "mode": "NORMAL",
+                    "retentionStrategy": {
+                        "idleMinutes": "10"
+                    },
+                    "": "0",
+                    "connector": {
+                        "user": "",
+                        "javaExe": "",
+                        "jvmArgsString": "",
+                        "entryPointCmdString": "",
+                        "stapler-class": "io.jenkins.docker.connector.DockerComputerAttachConnector",
+                        "$class": "io.jenkins.docker.connector.DockerComputerAttachConnector"
+                    },
+                    "stopTimeout": "10",
+                    "removeVolumes": false,
+                    "pullStrategy": "PULL_ALWAYS",
+                    "pullTimeout": "300"
+                },
+                "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate",
+                "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate"
+            }
+        },
+        {
+            "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate",
+            "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate",
+            "dockerTemplate": {
+                "labelString": "",
+                "disabled": {
+                    "enabledByChoice": false,
+                    "disabledBySystem": false,
+                    "whenDisabledBySystemString": "",
+                    "whenReEnableBySystemString": "",
+                    "reasonWhyDisabledBySystem": "",
+                    "exceptionWhenDisabledBySystemString": ""
+                },
+                "name": "docker",
+                "dockerTemplateBase": {
+                    "image": "",
+                    "includeUser": "false",
+                    "pullCredentialsId": "",
+                    "dockerCommand": "",
+                    "hostname": "",
+                    "user": "",
+                    "extraGroupsString": "",
+                    "dnsString": "",
+                    "network": "",
+                    "mountsString": "",
+                    "volumesFromString": "",
+                    "devicesString": "",
+                    "environmentsString": "",
+                    "bindPorts": "",
+                    "bindAllPorts": false,
+                    "memoryLimit": "",
+                    "memorySwap": "",
+                    "cpus": "",
+                    "cpuPeriod": "0",
+                    "cpuQuota": "0",
+                    "cpuShares": "",
+                    "shmSize": "",
+                    "privileged": false,
+                    "securityOptsString": "",
+                    "capabilitiesToAddString": "",
+                    "capabilitiesToDropString": "",
+                    "tty": false,
+                    "macAddress": "",
+                    "extraHostsString": "",
+                    "extraDockerLabelsString": ""
+                },
+                "instanceCapStr": "",
+                "remoteFs": "",
+                "mode": "NORMAL",
+                "retentionStrategy": {
+                    "idleMinutes": "10"
+                },
+                "": "0",
+                "connector": {
+                    "user": "",
+                    "javaExe": "",
+                    "jvmArgsString": "",
+                    "entryPointCmdString": "",
+                    "stapler-class": "io.jenkins.docker.connector.DockerComputerAttachConnector",
+                    "$class": "io.jenkins.docker.connector.DockerComputerAttachConnector"
+                },
+                "stopTimeout": "10",
+                "removeVolumes": false,
+                "pullStrategy": "PULL_ALWAYS",
+                "pullTimeout": "300"
+            }
+        },
+        {
+            "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderPublisher",
+            "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderPublisher",
+            "dockerFileDirectory": "",
+            "fromRegistry": {
+                "url": "",
+                "includeUser": "false",
+                "credentialsId": ""
+            },
+            "cloud": "",
+            "tagsString": "",
+            "buildArgsString": "",
+            "pushOnSuccess": false,
+            "includeUser": "false",
+            "pushCredentialsId": "",
+            "cleanImages": false,
+            "cleanupWithJenkinsJobDelete": false,
+            "noCache": false,
+            "pull": false
+        },
+        {
+            "stapler-class": "hudson.plugins.msbuild.MsBuildBuilder",
+            "$class": "hudson.plugins.msbuild.MsBuildBuilder",
+            "msBuildName": "(Default)",
+            "msBuildFile": "",
+            "cmdLineArgs": "",
+            "buildVariablesAsProperties": false,
+            "doNotUseChcpCommand": false,
+            "continueOnBuildFailure": false,
+            "unstableIfWarnings": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.pipeline.BuildDescriptionStep",
+            "$class": "org.jenkinsci.plugins.pipeline.BuildDescriptionStep",
+            "descriptionTemplate": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.pipeline.BuildNameStep",
+            "$class": "org.jenkinsci.plugins.pipeline.BuildNameStep",
+            "nameTemplate": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.conditionalbuildstep.ConditionalBuilder",
+            "$class": "org.jenkinsci.plugins.conditionalbuildstep.ConditionalBuilder",
+            "": [
+                "0",
+                "0"
+            ],
+            "runCondition": {
+                "stapler-class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun",
+                "$class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun"
+            },
+            "runner": {
+                "stapler-class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail",
+                "$class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.copyartifact.CopyArtifact",
+            "$class": "hudson.plugins.copyartifact.CopyArtifact",
+            "projectName": "",
+            "": "0",
+            "selector": {
+                "stable": false,
+                "stapler-class": "hudson.plugins.copyartifact.StatusBuildSelector",
+                "$class": "hudson.plugins.copyartifact.StatusBuildSelector"
+            },
+            "filter": "",
+            "excludes": "",
+            "target": "",
+            "parameters": "",
+            "flatten": false,
+            "optional": false,
+            "fingerprintArtifacts": true,
+            "resultVariableSuffix": ""
+        },
+        {
+            "stapler-class": "com.cloudbees.dockerpublish.DockerBuilder",
+            "$class": "com.cloudbees.dockerpublish.DockerBuilder",
+            "repoName": "",
+            "repoTag": "",
+            "server": {
+                "uri": "",
+                "includeUser": "false",
+                "credentialsId": ""
+            },
+            "registry": {
+                "url": "",
+                "includeUser": "false",
+                "credentialsId": ""
+            },
+            "skipPush": false,
+            "noCache": false,
+            "forcePull": true,
+            "skipBuild": false,
+            "createFingerprint": true,
+            "skipDecorate": false,
+            "skipTagLatest": false,
+            "buildContext": "",
+            "forceTag": false,
+            "buildAdditionalArgs": "",
+            "dockerfilePath": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.dockerbuildstep.DockerBuilder",
+            "$class": "org.jenkinsci.plugins.dockerbuildstep.DockerBuilder",
+            "": "0",
+            "dockerCmd": {
+                "containerId": "",
+                "repo": "",
+                "tag": "",
+                "runCmd": "",
+                "stapler-class": "org.jenkinsci.plugins.dockerbuildstep.cmd.CommitCommand",
+                "$class": "org.jenkinsci.plugins.dockerbuildstep.cmd.CommitCommand"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.groovy.Groovy",
+            "$class": "hudson.plugins.groovy.Groovy",
+            "groovyName": "(Default)",
+            "": "0",
+            "scriptSource": {
+                "command": "",
+                "": "",
+                "stapler-class": "hudson.plugins.groovy.StringScriptSource",
+                "$class": "hudson.plugins.groovy.StringScriptSource"
+            },
+            "parameters": "",
+            "classPath": "",
+            "scriptParameters": "",
+            "properties": "",
+            "javaOpts": ""
+        },
+        {
+            "stapler-class": "jenkins.plugins.nodejs.NodeJSCommandInterpreter",
+            "$class": "jenkins.plugins.nodejs.NodeJSCommandInterpreter",
+            "nodeJSInstallationName": "",
+            "command": "",
+            "configId": "",
+            "": "0",
+            "cacheLocationStrategy": {
+                "stapler-class": "jenkins.plugins.nodejs.cache.DefaultCacheLocationLocator",
+                "$class": "jenkins.plugins.nodejs.cache.DefaultCacheLocationLocator"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.python.Python",
+            "$class": "hudson.plugins.python.Python",
+            "command": "",
+            "": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.sonar.SonarRunnerBuilder",
+            "$class": "hudson.plugins.sonar.SonarRunnerBuilder",
+            "task": "",
+            "jdk": "(Inherit From Job)",
+            "project": "",
+            "properties": "",
+            "additionalArguments": "",
+            "javaOpts": ""
+        },
+        {
+            "stapler-class": "hudson.tasks.BatchFile",
+            "$class": "hudson.tasks.BatchFile",
+            "command": "",
+            "unstableReturn": ""
+        },
+        {
+            "stapler-class": "hudson.tasks.Shell",
+            "$class": "hudson.tasks.Shell",
+            "command": "",
+            "": "",
+            "unstableReturn": ""
+        },
+        {
+            "stapler-class": "org.jvnet.hudson.plugins.SSHBuilder",
+            "$class": "org.jvnet.hudson.plugins.SSHBuilder",
+            "siteName": "",
+            "command": "",
+            "execEachLine": false,
+            "hideCommand": false
+        },
+        {
+            "stapler-class": "hudson.plugins.groovy.SystemGroovy",
+            "$class": "hudson.plugins.groovy.SystemGroovy",
+            "": "0",
+            "source": {
+                "script": {
+                    "oldScript": "",
+                    "script": "",
+                    "sandbox": false
+                },
+                "stapler-class": "hudson.plugins.groovy.StringSystemScriptSource",
+                "$class": "hudson.plugins.groovy.StringSystemScriptSource"
+            },
+            "bindings": ""
+        },
+        {
+            "stapler-class": "sp.sd.fileoperations.FileOperationsBuilder",
+            "$class": "sp.sd.fileoperations.FileOperationsBuilder"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.github.pullrequest.builders.GitHubPRStatusBuilder",
+            "$class": "org.jenkinsci.plugins.github.pullrequest.builders.GitHubPRStatusBuilder",
+            "statusMessage": {
+                "content": "${GITHUB_PR_COND_REF} run started"
+            }
+        },
+        {
+            "stapler-class": "jenkins.plugins.http_request.HttpRequest",
+            "$class": "jenkins.plugins.http_request.HttpRequest",
+            "url": "",
+            "httpMode": "GET",
+            "ignoreSslErrors": "false",
+            "httpProxy": "",
+            "authentication": "",
+            "useSystemProperties": "false",
+            "acceptType": "NOT_SET",
+            "contentType": "NOT_SET",
+            "passBuildParameters": "false",
+            "requestBody": "",
+            "wrapAsMultipart": "false",
+            "uploadFile": "",
+            "multipartName": "",
+            "timeout": "0",
+            "validResponseCodes": "100:399",
+            "validResponseContent": "",
+            "outputFile": "",
+            "consoleLogResponseBody": "false",
+            "quiet": "false"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.envinject.EnvInjectBuilder",
+            "$class": "org.jenkinsci.plugins.envinject.EnvInjectBuilder",
+            "propertiesFilePath": "",
+            "propertiesContent": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.ansible.AnsibleAdHocCommandBuilder",
+            "$class": "org.jenkinsci.plugins.ansible.AnsibleAdHocCommandBuilder",
+            "hostPattern": "",
+            "module": "",
+            "command": "",
+            "includeUser": [
+                "false",
+                "false"
+            ],
+            "credentialsId": "",
+            "vaultCredentialsId": "",
+            "become": false,
+            "becomeUser": "",
+            "sudo": false,
+            "sudoUser": "",
+            "forks": "5",
+            "disableHostKeyChecking": false,
+            "unbufferedOutput": true,
+            "colorizedOutput": false,
+            "additionalParameters": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder",
+            "$class": "org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder",
+            "playbook": "",
+            "limit": "",
+            "includeUser": [
+                "false",
+                "false"
+            ],
+            "credentialsId": "",
+            "vaultCredentialsId": "",
+            "become": false,
+            "becomeUser": "",
+            "sudo": false,
+            "sudoUser": "",
+            "tags": "",
+            "skippedTags": "",
+            "startAtTask": "",
+            "forks": "5",
+            "disableHostKeyChecking": false,
+            "unbufferedOutput": true,
+            "colorizedOutput": false,
+            "additionalParameters": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.ansible.AnsibleVaultBuilder",
+            "$class": "org.jenkinsci.plugins.ansible.AnsibleVaultBuilder",
+            "action": "",
+            "includeUser": [
+                "false",
+                "false"
+            ],
+            "vaultCredentialsId": "",
+            "newVaultCredentialsId": "",
+            "content": "",
+            "input": "",
+            "output": ""
+        },
+        {
+            "stapler-class": "hudson.tasks.Ant",
+            "$class": "hudson.tasks.Ant",
+            "targets": "",
+            "buildFile": "",
+            "properties": "",
+            "antOpts": ""
+        },
+        {
+            "stapler-class": "org.jfrog.hudson.maven3.Maven3Builder",
+            "$class": "org.jfrog.hudson.maven3.Maven3Builder",
+            "rootPom": "",
+            "goals": "",
+            "mavenOpts": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.gradle.Gradle",
+            "$class": "hudson.plugins.gradle.Gradle",
+            "useWrapper": "false",
+            "gradleName": "(Default)",
+            "makeExecutable": false,
+            "wrapperLocation": "",
+            "tasks": "",
+            "switches": "",
+            "systemProperties": "",
+            "passAllAsSystemProperties": false,
+            "projectProperties": "",
+            "passAllAsProjectProperties": false,
+            "rootBuildScriptDir": "",
+            "buildFile": "",
+            "useWorkspaceAsHome": false
+        },
+        {
+            "stapler-class": "hudson.tasks.Maven",
+            "$class": "hudson.tasks.Maven",
+            "targets": "",
+            "pom": "",
+            "properties": "",
+            "jvmOptions": "",
+            "injectBuildVariables": false,
+            "usePrivateRepository": false,
+            "": [
+                "0",
+                "0"
+            ],
+            "settings": {
+                "stapler-class": "jenkins.mvn.DefaultSettingsProvider",
+                "$class": "jenkins.mvn.DefaultSettingsProvider"
+            },
+            "globalSettings": {
+                "stapler-class": "jenkins.mvn.DefaultGlobalSettingsProvider",
+                "$class": "jenkins.mvn.DefaultGlobalSettingsProvider"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraEnvironmentVariableBuilder",
+            "$class": "hudson.plugins.jira.JiraEnvironmentVariableBuilder"
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraVersionCreatorBuilder",
+            "$class": "hudson.plugins.jira.JiraVersionCreatorBuilder",
+            "jiraVersion": "",
+            "jiraProjectKey": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.pipeline.IssueFieldUpdateStep",
+            "$class": "hudson.plugins.jira.pipeline.IssueFieldUpdateStep",
+            "": "0",
+            "issueSelector": {
+                "stapler-class": "hudson.plugins.jira.selector.DefaultIssueSelector",
+                "$class": "hudson.plugins.jira.selector.DefaultIssueSelector"
+            },
+            "fieldId": "",
+            "fieldValue": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraReleaseVersionUpdaterBuilder",
+            "$class": "hudson.plugins.jira.JiraReleaseVersionUpdaterBuilder",
+            "jiraRelease": "",
+            "jiraProjectKey": "",
+            "jiraDescription": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraIssueUpdateBuilder",
+            "$class": "hudson.plugins.jira.JiraIssueUpdateBuilder",
+            "jqlSearch": "",
+            "workflowActionName": "",
+            "comment": ""
+        },
+        {
+            "stapler-class": "sp.sd.nexusartifactuploader.NexusArtifactUploader",
+            "$class": "sp.sd.nexusartifactuploader.NexusArtifactUploader",
+            "nexusVersion": "nexus2",
+            "protocol": "http",
+            "nexusUrl": "",
+            "includeUser": "false",
+            "credentialsId": "",
+            "groupId": "",
+            "version": "",
+            "repository": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.p4.unshelve.UnshelveBuilder",
+            "$class": "org.jenkinsci.plugins.p4.unshelve.UnshelveBuilder",
+            "shelf": "",
+            "resolve": "none",
+            "tidy": false,
+            "ignoreEmpty": false
+        },
+        {
+            "stapler-class": "hudson.plugins.powershell.PowerShell",
+            "$class": "hudson.plugins.powershell.PowerShell",
+            "command": "",
+            "": "",
+            "stopOnError": true,
+            "useProfile": true,
+            "unstableReturn": ""
+        },
+        {
+            "stapler-class": "javaposse.jobdsl.plugin.ExecuteDslScripts",
+            "$class": "javaposse.jobdsl.plugin.ExecuteDslScripts",
+            "scriptText": "",
+            "": "",
+            "useScriptText": "false",
+            "targets": "",
+            "ignoreMissingFiles": false,
+            "sandbox": false,
+            "ignoreExisting": false,
+            "failOnSeedCollision": false,
+            "removedJobAction": "IGNORE",
+            "removedViewAction": "IGNORE",
+            "removedConfigFilesAction": "IGNORE",
+            "lookupStrategy": "JENKINS_ROOT",
+            "failOnMissingPlugin": false,
+            "unstableOnDeprecation": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.configfiles.builder.ConfigFileBuildStep",
+            "$class": "org.jenkinsci.plugins.configfiles.builder.ConfigFileBuildStep",
+            "managedFiles": {
+                "fileId": "",
+                "targetLocation": "",
+                "variable": "",
+                "replaceTokens": false
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.performance.build.PerformanceTestBuild",
+            "$class": "hudson.plugins.performance.build.PerformanceTestBuild",
+            "params": "",
+            "virtualEnvCommand": "",
+            "workingDirectory": "",
+            "bztVersion": "",
+            "alwaysUseVirtualenv": false,
+            "generatePerformanceTrend": true,
+            "useBztExitCode": true,
+            "printDebugOutput": false,
+            "useSystemSitePackages": true
+        },
+        {
+            "stapler-class": "hudson.plugins.build_timeout.BuildStepWithTimeout",
+            "$class": "hudson.plugins.build_timeout.BuildStepWithTimeout",
+            "": [
+                "0",
+                "0"
+            ],
+            "strategy": {
+                "timeoutMinutes": "3",
+                "stapler-class": "hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy",
+                "$class": "hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy"
+            },
+            "buildStep": {
+                "": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "condition": {
+                    "stapler-class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun",
+                    "$class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun"
+                },
+                "runner": {
+                    "stapler-class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail",
+                    "$class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail"
+                },
+                "buildStep": {
+                    "dockerTemplate": {
+                        "labelString": "",
+                        "disabled": {
+                            "enabledByChoice": false,
+                            "disabledBySystem": false,
+                            "whenDisabledBySystemString": "",
+                            "whenReEnableBySystemString": "",
+                            "reasonWhyDisabledBySystem": "",
+                            "exceptionWhenDisabledBySystemString": ""
+                        },
+                        "name": "docker",
+                        "dockerTemplateBase": {
+                            "image": "",
+                            "includeUser": "false",
+                            "pullCredentialsId": "",
+                            "dockerCommand": "",
+                            "hostname": "",
+                            "user": "",
+                            "extraGroupsString": "",
+                            "dnsString": "",
+                            "network": "",
+                            "mountsString": "",
+                            "volumesFromString": "",
+                            "devicesString": "",
+                            "environmentsString": "",
+                            "bindPorts": "",
+                            "bindAllPorts": false,
+                            "memoryLimit": "",
+                            "memorySwap": "",
+                            "cpus": "",
+                            "cpuPeriod": "0",
+                            "cpuQuota": "0",
+                            "cpuShares": "",
+                            "shmSize": "",
+                            "privileged": false,
+                            "securityOptsString": "",
+                            "capabilitiesToAddString": "",
+                            "capabilitiesToDropString": "",
+                            "tty": false,
+                            "macAddress": "",
+                            "extraHostsString": "",
+                            "extraDockerLabelsString": ""
+                        },
+                        "instanceCapStr": "",
+                        "remoteFs": "",
+                        "mode": "NORMAL",
+                        "retentionStrategy": {
+                            "idleMinutes": "10"
+                        },
+                        "": "0",
+                        "connector": {
+                            "user": "",
+                            "javaExe": "",
+                            "jvmArgsString": "",
+                            "entryPointCmdString": "",
+                            "stapler-class": "io.jenkins.docker.connector.DockerComputerAttachConnector",
+                            "$class": "io.jenkins.docker.connector.DockerComputerAttachConnector"
+                        },
+                        "stopTimeout": "10",
+                        "removeVolumes": false,
+                        "pullStrategy": "PULL_ALWAYS",
+                        "pullTimeout": "300"
+                    },
+                    "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate",
+                    "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate"
+                },
+                "stapler-class": "org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder",
+                "$class": "org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.s3.S3CopyArtifact",
+            "$class": "hudson.plugins.s3.S3CopyArtifact",
+            "projectName": "",
+            "": "0",
+            "buildSelector": {
+                "stable": false,
+                "stapler-class": "hudson.plugins.copyartifact.StatusBuildSelector",
+                "$class": "hudson.plugins.copyartifact.StatusBuildSelector"
+            },
+            "filter": "",
+            "excludeFilter": "",
+            "target": "",
+            "flatten": false,
+            "optional": false
+        },
+        {
+            "stapler-class": "jenkins.plugins.publish_over_ssh.BapSshBuilderPlugin",
+            "$class": "jenkins.plugins.publish_over_ssh.BapSshBuilderPlugin",
+            "publishers": {
+                "configName": "",
+                "verbose": false,
+                "transfers": {
+                    "sourceFiles": "",
+                    "removePrefix": "",
+                    "remoteDirectory": "",
+                    "execCommand": "",
+                    "excludes": "",
+                    "patternSeparator": "[, ]+",
+                    "noDefaultExcludes": false,
+                    "makeEmptyDirs": false,
+                    "flatten": false,
+                    "cleanRemote": false,
+                    "remoteDirectorySDF": false,
+                    "execTimeout": "120000",
+                    "usePty": false,
+                    "useAgentForwarding": false,
+                    "useSftpForExec": false
+                }
+            },
+            "continueOnError": false,
+            "failOnError": false,
+            "alwaysPublishFromMaster": false
+        },
+        {
+            "stapler-class": "jenkins.plugins.publish_over_ftp.BapFtpBuilder",
+            "$class": "jenkins.plugins.publish_over_ftp.BapFtpBuilder",
+            "publishers": {
+                "configName": "",
+                "verbose": false,
+                "transfers": {
+                    "sourceFiles": "",
+                    "removePrefix": "",
+                    "remoteDirectory": "",
+                    "excludes": "",
+                    "patternSeparator": "[, ]+",
+                    "noDefaultExcludes": false,
+                    "makeEmptyDirs": false,
+                    "flatten": false,
+                    "remoteDirectorySDF": false,
+                    "cleanRemote": false,
+                    "asciiMode": false
+                }
+            },
+            "continueOnError": false,
+            "failOnError": false,
+            "alwaysPublishFromMaster": false
+        },
+        {
+            "stapler-class": "hudson.plugins.descriptionsetter.DescriptionSetterBuilder",
+            "$class": "hudson.plugins.descriptionsetter.DescriptionSetterBuilder",
+            "regexp": "",
+            "description": ""
+        },
+        {
+            "stapler-class": "com.cloudbees.jenkins.GitHubSetCommitStatusBuilder",
+            "$class": "com.cloudbees.jenkins.GitHubSetCommitStatusBuilder",
+            "": "0",
+            "contextSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource"
+            },
+            "statusMessage": {
+                "content": ""
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.sonar.MsBuildSQRunnerBegin",
+            "$class": "hudson.plugins.sonar.MsBuildSQRunnerBegin",
+            "projectKey": "",
+            "projectName": "",
+            "projectVersion": "",
+            "additionalArguments": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.sonar.MsBuildSQRunnerEnd",
+            "$class": "hudson.plugins.sonar.MsBuildSQRunnerEnd"
+        },
+        {
+            "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderControl",
+            "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderControl",
+            "": "0",
+            "option": {
+                "cloudName": "",
+                "templateId": "",
+                "stapler-class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderControlOptionProvisionAndStart",
+                "$class": "com.nirima.jenkins.plugins.docker.builder.DockerBuilderControlOptionProvisionAndStart"
+            }
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.RemoteBuildConfiguration",
+            "$class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.RemoteBuildConfiguration",
+            "remoteJenkinsName": "",
+            "remoteJenkinsUrl": "",
+            "": [
+                "2",
+                "0"
+            ],
+            "auth2": {
+                "stapler-class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.auth2.NullAuth",
+                "$class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.auth2.NullAuth"
+            },
+            "shouldNotFailBuild": false,
+            "abortTriggeredJob": false,
+            "preventRemoteBuildQueue": false,
+            "pollInterval": "10",
+            "blockBuildUntilComplete": false,
+            "job": "",
+            "token": "{AQAAABAAAAAQtJ/06j1XbNX1E74GbvkIbqvaC8Yqiw0ny7DWxBtpBtE=}",
+            "$redact": "token",
+            "parameters2": {
+                "stapler-class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.parameters2.MapParameters",
+                "$class": "org.jenkinsci.plugins.ParameterizedRemoteTrigger.parameters2.MapParameters"
+            },
+            "maxConn": "1",
+            "enhancedLogging": false,
+            "useCrumbCache": true,
+            "useJobInfoCache": true,
+            "disabled": false,
+            "overrideTrustAllCertificates": false,
+            "trustAllCertificates": false
+        },
+        {
+            "stapler-class": "hudson.plugins.parameterizedtrigger.TriggerBuilder",
+            "$class": "hudson.plugins.parameterizedtrigger.TriggerBuilder",
+            "configs": {
+                "projects": ""
+            }
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater",
+            "$class": "org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater",
+            "fromFile": false,
+            "buildName": "version.txt",
+            "fromMacro": false,
+            "macroTemplate": "#${BUILD_NUMBER}",
+            "macroFirst": false
+        }
+    ],
+    "publisher": [
+        {
+            "stapler-class": "org.jenkins_ci.plugins.flexible_publish.FlexiblePublisher",
+            "$class": "org.jenkins_ci.plugins.flexible_publish.FlexiblePublisher",
+            "publishers": {
+                "": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "condition": {
+                    "stapler-class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun",
+                    "$class": "org.jenkins_ci.plugins.run_condition.core.AlwaysRun"
+                },
+                "runner": {
+                    "stapler-class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail",
+                    "$class": "org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail"
+                },
+                "executionStrategy": {
+                    "stapler-class": "org.jenkins_ci.plugins.flexible_publish.strategy.FailAtEndExecutionStrategy",
+                    "$class": "org.jenkins_ci.plugins.flexible_publish.strategy.FailAtEndExecutionStrategy"
+                }
+            }
+        },
+        {
+            "stapler-class": "hudson.tasks.test.AggregatedTestResultPublisher",
+            "$class": "hudson.tasks.test.AggregatedTestResultPublisher",
+            "includeFailedBuilds": false
+        },
+        {
+            "stapler-class": "ru.yandex.qatools.allure.jenkins.AllureReportPublisher",
+            "$class": "ru.yandex.qatools.allure.jenkins.AllureReportPublisher",
+            "disabled": false,
+            "results": {
+                "path": "allure-results"
+            },
+            "jdk": "",
+            "reportBuildPolicy": "ALWAYS",
+            "includeProperties": false,
+            "report": "allure-report",
+            "configPath": ""
+        },
+        {
+            "stapler-class": "hudson.tasks.ArtifactArchiver",
+            "$class": "hudson.tasks.ArtifactArchiver",
+            "artifacts": "",
+            "excludes": "",
+            "allowEmptyArchive": false,
+            "onlyIfSuccessful": false,
+            "fingerprint": false,
+            "defaultExcludes": true,
+            "caseSensitive": true,
+            "followSymlinks": false
+        },
+        {
+            "stapler-class": "hudson.tasks.BuildTrigger",
+            "$class": "hudson.tasks.BuildTrigger",
+            "childProjects": "",
+            "threshold": "SUCCESS"
+        },
+        {
+            "stapler-class": "hudson.plugins.disk_usage.project.DiskUsagePostBuildCalculation",
+            "$class": "hudson.plugins.disk_usage.project.DiskUsagePostBuildCalculation"
+        },
+        {
+            "stapler-class": "hudson.plugins.logparser.LogParserPublisher",
+            "$class": "hudson.plugins.logparser.LogParserPublisher",
+            "unstableOnWarning": false,
+            "failBuildOnError": false,
+            "showGraphs": false,
+            "useProjectRule": "false",
+            "parsingRulesPath": "",
+            "projectRulePath": ""
+        },
+        {
+            "stapler-class": "net.masterthought.jenkins.CucumberReportPublisher",
+            "$class": "net.masterthought.jenkins.CucumberReportPublisher",
+            "reportTitle": "",
+            "jsonReportDirectory": "",
+            "fileIncludePattern": "**/*.json",
+            "fileExcludePattern": "",
+            "classificationsFilePattern": "",
+            "trendsLimit": "0",
+            "failedStepsNumber": "-1",
+            "skippedStepsNumber": "-1",
+            "pendingStepsNumber": "-1",
+            "undefinedStepsNumber": "-1",
+            "failedScenariosNumber": "-1",
+            "failedFeaturesNumber": "-1",
+            "failedStepsPercentage": "0.0",
+            "skippedStepsPercentage": "0.0",
+            "pendingStepsPercentage": "0.0",
+            "undefinedStepsPercentage": "0.0",
+            "failedScenariosPercentage": "0.0",
+            "failedFeaturesPercentage": "0.0",
+            "failedAsNotFailingStatus": false,
+            "skippedAsNotFailingStatus": false,
+            "pendingAsNotFailingStatus": false,
+            "undefinedAsNotFailingStatus": false,
+            "buildStatus": "null",
+            "stopBuildOnFailedReport": false,
+            "sortingMethod": "ALPHABETICAL",
+            "mergeFeaturesById": false,
+            "mergeFeaturesWithRetest": false,
+            "hideEmptyHooks": false,
+            "skipEmptyJSONFiles": false,
+            "expandAllSteps": false,
+            "customCssFiles": "",
+            "customJsFiles": ""
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.forensics.reference.SimpleReferenceRecorder",
+            "$class": "io.jenkins.plugins.forensics.reference.SimpleReferenceRecorder",
+            "referenceJob": "-"
+        },
+        {
+            "stapler-class": "org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder",
+            "$class": "org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder",
+            "script": {
+                "oldScript": "",
+                "script": "",
+                "sandbox": false
+            },
+            "behavior": "0"
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraIssueUpdater",
+            "$class": "hudson.plugins.jira.JiraIssueUpdater",
+            "": "0",
+            "issueSelector": {
+                "stapler-class": "hudson.plugins.jira.selector.DefaultIssueSelector",
+                "$class": "hudson.plugins.jira.selector.DefaultIssueSelector"
+            }
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.forensics.miner.RepositoryMinerStep",
+            "$class": "io.jenkins.plugins.forensics.miner.RepositoryMinerStep",
+            "scm": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.postbuildtask.PostbuildTask",
+            "$class": "hudson.plugins.postbuildtask.PostbuildTask",
+            "t": {
+                "lp": {
+                    "logText": "",
+                    "operator": "AND"
+                },
+                "logText": "@$#endofblock",
+                "operator": "@$#endofblock",
+                "script": "",
+                "RunIfJobSuccessful": false,
+                "EscalateStatus": false
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.cobertura.CoberturaPublisher",
+            "$class": "hudson.plugins.cobertura.CoberturaPublisher",
+            "coberturaReportFile": "",
+            "enableNewApi": false,
+            "onlyStable": false,
+            "failNoReports": true,
+            "failUnhealthy": false,
+            "failUnstable": false,
+            "autoUpdateHealth": false,
+            "autoUpdateStability": false,
+            "zoomCoverageChart": false,
+            "maxNumberOfBuilds": "0",
+            "sourceEncoding": "ASCII",
+            "inst": [
+                {
+                    "metric": "METHOD",
+                    "healthy": "80.0",
+                    "unhealthy": "0.0",
+                    "unstable": "0.0"
+                },
+                {
+                    "metric": "LINE",
+                    "healthy": "80.0",
+                    "unhealthy": "0.0",
+                    "unstable": "0.0"
+                },
+                {
+                    "metric": "CONDITIONAL",
+                    "healthy": "70.0",
+                    "unhealthy": "0.0",
+                    "unstable": "0.0"
+                }
+            ]
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.coverage.CoveragePublisher",
+            "$class": "io.jenkins.plugins.coverage.CoveragePublisher",
+            "applyThresholdRecursively": false,
+            "failUnhealthy": false,
+            "failUnstable": false,
+            "failNoReports": false,
+            "failBuildIfCoverageDecreasedInChangeRequest": false,
+            "skipPublishingChecks": false,
+            "scm": "",
+            "sourceFileResolver": {
+                "level": "NEVER_STORE"
+            },
+            "sourceCodeEncoding": ""
+        },
+        {
+            "stapler-class": "htmlpublisher.HtmlPublisher",
+            "$class": "htmlpublisher.HtmlPublisher"
+        },
+        {
+            "stapler-class": "hudson.tasks.junit.JUnitResultArchiver",
+            "$class": "hudson.tasks.junit.JUnitResultArchiver",
+            "testResults": "",
+            "keepLongStdio": false,
+            "healthScaleFactor": "1.0",
+            "allowEmptyResults": false,
+            "skipPublishingChecks": false,
+            "checksName": "",
+            "skipMarkingBuildUnstable": false,
+            "skipOldReports": false
+        },
+        {
+            "stapler-class": "hudson.tasks.JavadocArchiver",
+            "$class": "hudson.tasks.JavadocArchiver",
+            "javadocDir": "",
+            "keepAll": false
+        },
+        {
+            "stapler-class": "hudson.plugins.performance.PerformancePublisher",
+            "$class": "hudson.plugins.performance.PerformancePublisher",
+            "sourceDataFiles": "",
+            "filterRegex": "",
+            "showTrendGraphs": true,
+            "modeEvaluation": "false",
+            "modeOfThreshold": "false",
+            "errorUnstableThreshold": "-1",
+            "errorFailedThreshold": "-1",
+            "errorUnstableResponseTimeThreshold": "",
+            "relativeUnstableThresholdNegative": "-1.0",
+            "relativeUnstableThresholdPositive": "-1.0",
+            "relativeFailedThresholdNegative": "-1.0",
+            "relativeFailedThresholdPositive": "-1.0",
+            "compareBuildPrevious": "false",
+            "nthBuildNumber": "0",
+            "configType": "ART",
+            "ignoreFailedBuilds": false,
+            "ignoreUnstableBuilds": false,
+            "persistConstraintLog": false,
+            "junitOutput": "",
+            "graphType": "ART",
+            "percentiles": "0,50,90,100",
+            "modePerformancePerTestCase": false,
+            "modeThroughput": false,
+            "excludeResponseTime": false,
+            "failBuildIfNoResultFile": true,
+            "baselineBuild": "0"
+        },
+        {
+            "stapler-class": "hudson.plugins.robot.RobotPublisher",
+            "$class": "hudson.plugins.robot.RobotPublisher",
+            "outputPath": "",
+            "archiveDirName": "robot-plugin",
+            "outputFileName": "output.xml",
+            "reportFileName": "report.html",
+            "logFileName": "log.html",
+            "otherFiles": "",
+            "disableArchiveOutput": false,
+            "enableCache": true,
+            "overwriteXAxisLabel": "",
+            "unstableThreshold": "0.0",
+            "passThreshold": "0.0",
+            "onlyCritical": true
+        },
+        {
+            "stapler-class": "hudson.plugins.testng.Publisher",
+            "$class": "hudson.plugins.testng.Publisher",
+            "reportFilenamePattern": "**/testng-results.xml",
+            "showFailedBuilds": false,
+            "failureOnFailedTestConfig": false,
+            "unstableSkips": "100",
+            "unstableFails": "0",
+            "failedSkips": "100",
+            "failedFails": "100",
+            "": "2"
+        },
+        {
+            "stapler-class": "hudson.plugins.s3.S3BucketPublisher",
+            "$class": "hudson.plugins.s3.S3BucketPublisher",
+            "profileName": "",
+            "pluginFailureResultConstraint": "FAILURE",
+            "dontWaitForConcurrentBuildCompletion": false,
+            "dontSetBuildResultOnFailure": false,
+            "consoleLogLevel": "INFO"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.xunit.XUnitPublisher",
+            "$class": "org.jenkinsci.plugins.xunit.XUnitPublisher",
+            "thresholdMode": "1",
+            "testTimeMargin": "3000",
+            "sleepTime": "10",
+            "reduceLog": true,
+            "followSymlink": true,
+            "skipPublishingChecks": true,
+            "checksName": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jacoco.JacocoPublisher",
+            "$class": "hudson.plugins.jacoco.JacocoPublisher",
+            "execPattern": "**/**.exec",
+            "inclusionPattern": "",
+            "exclusionPattern": "",
+            "classPattern": "**/classes",
+            "sourcePattern": "**/src/main/java",
+            "sourceInclusionPattern": "**/*.java,**/*.groovy,**/*.kt,**/*.kts",
+            "sourceExclusionPattern": "",
+            "skipCopyOfSrcFiles": false,
+            "changeBuildStatus": false,
+            "runAlways": false,
+            "maximumInstructionCoverage": "0",
+            "maximumBranchCoverage": "0",
+            "maximumComplexityCoverage": "0",
+            "maximumLineCoverage": "0",
+            "maximumMethodCoverage": "0",
+            "maximumClassCoverage": "0",
+            "minimumInstructionCoverage": "0",
+            "minimumBranchCoverage": "0",
+            "minimumComplexityCoverage": "0",
+            "minimumLineCoverage": "0",
+            "minimumMethodCoverage": "0",
+            "minimumClassCoverage": "0",
+            "buildOverBuild": false,
+            "deltaInstructionCoverage": "0",
+            "deltaBranchCoverage": "0",
+            "deltaComplexityCoverage": "0",
+            "deltaLineCoverage": "0",
+            "deltaMethodCoverage": "0",
+            "deltaClassCoverage": "0"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.analysis.core.steps.IssuesRecorder",
+            "$class": "io.jenkins.plugins.analysis.core.steps.IssuesRecorder",
+            "toolProxies": {
+                "": "0",
+                "tool": {
+                    "pattern": "",
+                    "skipSymbolicLinks": false,
+                    "reportEncoding": "",
+                    "id": "",
+                    "name": "",
+                    "stapler-class": "io.jenkins.plugins.analysis.warnings.AcuCobol",
+                    "$class": "io.jenkins.plugins.analysis.warnings.AcuCobol"
+                }
+            },
+            "aggregatingResults": false,
+            "enabledForFailure": false,
+            "skipBlames": false,
+            "scm": "",
+            "sourceCodeEncoding": "",
+            "skipPublishingChecks": false,
+            "publishAllIssues": false,
+            "failOnError": false,
+            "trendChartType": "AGGREGATION_TOOLS",
+            "ignoreQualityGate": false,
+            "ignoreFailedBuilds": true,
+            "healthy": "",
+            "unhealthy": "",
+            "minimumSeverity": "LOW"
+        },
+        {
+            "stapler-class": "hudson.tasks.Fingerprinter",
+            "$class": "hudson.tasks.Fingerprinter",
+            "targets": "",
+            "excludes": "",
+            "defaultExcludes": true,
+            "caseSensitive": true
+        },
+        {
+            "stapler-class": "hudson.plugins.textfinder.TextFinderPublisher",
+            "$class": "hudson.plugins.textfinder.TextFinderPublisher",
+            "textFinders": {
+                "regexp": "",
+                "fileSet": "",
+                "alsoCheckConsoleOutput": false,
+                "buildResult": "FAILURE",
+                "changeCondition": "MATCH_FOUND"
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.descriptionsetter.DescriptionSetterPublisher",
+            "$class": "hudson.plugins.descriptionsetter.DescriptionSetterPublisher",
+            "regexp": "",
+            "description": "",
+            "regexpForFailed": "",
+            "descriptionForFailed": "",
+            "setForMatrix": false
+        },
+        {
+            "stapler-class": "com.nirima.jenkins.plugins.docker.publisher.DockerPublisherControl",
+            "$class": "com.nirima.jenkins.plugins.docker.publisher.DockerPublisherControl",
+            "remove": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.dockerbuildstep.DockerPostBuilder$DockerPostBuildStep",
+            "$class": "org.jenkinsci.plugins.dockerbuildstep.DockerPostBuilder$DockerPostBuildStep",
+            "containerIds": "",
+            "removeVolumes": false,
+            "force": false
+        },
+        {
+            "stapler-class": "hudson.plugins.git.GitPublisher",
+            "$class": "hudson.plugins.git.GitPublisher",
+            "pushOnlyIfSuccess": false,
+            "pushMerge": false,
+            "forcePush": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.ghprb.GhprbPullRequestMerge",
+            "$class": "org.jenkinsci.plugins.ghprb.GhprbPullRequestMerge",
+            "mergeComment": "",
+            "onlyAdminsMerge": false,
+            "disallowOwnCode": false,
+            "failOnNonMerge": false,
+            "deleteOnMerge": false,
+            "allowMergeWithoutTriggerPhrase": false
+        },
+        {
+            "stapler-class": "hudson.plugins.sonar.SonarPublisher",
+            "$class": "hudson.plugins.sonar.SonarPublisher",
+            "branch": "",
+            "jdk": "",
+            "mavenInstallationName": "",
+            "rootPom": "",
+            "usePrivateRepository": false,
+            "": [
+                "0",
+                "0"
+            ],
+            "settings": {
+                "stapler-class": "jenkins.mvn.DefaultSettingsProvider",
+                "$class": "jenkins.mvn.DefaultSettingsProvider"
+            },
+            "globalSettings": {
+                "stapler-class": "jenkins.mvn.DefaultGlobalSettingsProvider",
+                "$class": "jenkins.mvn.DefaultGlobalSettingsProvider"
+            },
+            "mavenOpts": "",
+            "jobAdditionalProperties": ""
+        },
+        {
+            "stapler-class": "com.dabsquared.gitlabjenkins.publisher.GitLabAcceptMergeRequestPublisher",
+            "$class": "com.dabsquared.gitlabjenkins.publisher.GitLabAcceptMergeRequestPublisher",
+            "deleteSourceBranch": false
+        },
+        {
+            "stapler-class": "com.dabsquared.gitlabjenkins.publisher.GitLabMessagePublisher",
+            "$class": "com.dabsquared.gitlabjenkins.publisher.GitLabMessagePublisher",
+            "onlyForFailure": false,
+            "replaceSuccessNote": false,
+            "successNoteText": "",
+            "replaceFailureNote": false,
+            "failureNoteText": "",
+            "replaceAbortNote": false,
+            "abortNoteText": "",
+            "replaceUnstableNote": false,
+            "unstableNoteText": ""
+        },
+        {
+            "stapler-class": "com.dabsquared.gitlabjenkins.publisher.GitLabVotePublisher",
+            "$class": "com.dabsquared.gitlabjenkins.publisher.GitLabVotePublisher"
+        },
+        {
+            "stapler-class": "au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger",
+            "$class": "au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger",
+            "downstreamProjectNames": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.clearcase.ucm.UcmMakeBaselineComposite",
+            "$class": "hudson.plugins.clearcase.ucm.UcmMakeBaselineComposite",
+            "compositenamepattern": "",
+            "compositestreamselector": "",
+            "compositecomponentname": "",
+            "recommend": true
+        },
+        {
+            "stapler-class": "hudson.plugins.clearcase.ClearCasePublisher",
+            "$class": "hudson.plugins.clearcase.ClearCasePublisher"
+        },
+        {
+            "stapler-class": "hudson.plugins.deploy.DeployPublisher",
+            "$class": "hudson.plugins.deploy.DeployPublisher",
+            "war": "",
+            "contextPath": "",
+            "onFailure": false
+        },
+        {
+            "stapler-class": "hudson.tasks.Mailer",
+            "$class": "hudson.tasks.Mailer",
+            "recipients": "",
+            "notifyEveryUnstableBuild": true,
+            "sendToIndividuals": false
+        },
+        {
+            "stapler-class": "hudson.plugins.emailext.ExtendedEmailPublisher",
+            "$class": "hudson.plugins.emailext.ExtendedEmailPublisher",
+            "project_disabled": false,
+            "project_from": "",
+            "project_recipient_list": "$DEFAULT_RECIPIENTS",
+            "project_replyto": "$DEFAULT_REPLYTO",
+            "project_content_type": "default",
+            "project_default_subject": "$DEFAULT_SUBJECT",
+            "project_default_content": "$DEFAULT_CONTENT",
+            "project_attachments": "",
+            "project_attach_buildlog": "0",
+            "project_presend_script": "$DEFAULT_PRESEND_SCRIPT",
+            "postsendScript": "$DEFAULT_POSTSEND_SCRIPT",
+            "project_save_output": false,
+            "project_triggers": {
+                "stapler-class": "hudson.plugins.emailext.plugins.trigger.FailureTrigger",
+                "$class": "hudson.plugins.emailext.plugins.trigger.FailureTrigger",
+                "recipientProviders": {
+                    "stapler-class": "hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider",
+                    "$class": "hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider"
+                },
+                "recipientList": "",
+                "replyTo": "$PROJECT_DEFAULT_REPLYTO",
+                "contentType": "project",
+                "subject": "$PROJECT_DEFAULT_SUBJECT",
+                "body": "$PROJECT_DEFAULT_CONTENT",
+                "attachmentsPattern": "",
+                "attachBuildLog": "0"
+            }
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.emailext_template.ExtendedEmailTemplatePublisher",
+            "$class": "org.jenkinsci.plugins.emailext_template.ExtendedEmailTemplatePublisher",
+            "templateIds": {
+                "templateId": ""
+            }
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.postbuildscript.PostBuildScript",
+            "$class": "org.jenkinsci.plugins.postbuildscript.PostBuildScript",
+            "markBuildUnstable": false
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraCreateIssueNotifier",
+            "$class": "hudson.plugins.jira.JiraCreateIssueNotifier",
+            "projectKey": "",
+            "assignee": "",
+            "testDescription": "",
+            "component": "",
+            "priorityId": "",
+            "typeId": "",
+            "actionIdOnSuccess": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraVersionCreator",
+            "$class": "hudson.plugins.jira.JiraVersionCreator",
+            "jiraVersion": "",
+            "jiraProjectKey": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraReleaseVersionUpdater",
+            "$class": "hudson.plugins.jira.JiraReleaseVersionUpdater",
+            "jiraRelease": "",
+            "jiraProjectKey": "",
+            "jiraDescription": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.jira.JiraIssueMigrator",
+            "$class": "hudson.plugins.jira.JiraIssueMigrator",
+            "jiraRelease": "",
+            "addRelease": false,
+            "jiraReplaceVersion": "",
+            "jiraProjectKey": "",
+            "jiraQuery": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.stashNotifier.StashNotifier",
+            "$class": "org.jenkinsci.plugins.stashNotifier.StashNotifier",
+            "stashServerBaseUrl": "",
+            "includeUser": "false",
+            "credentialsId": "",
+            "commitSha1": "",
+            "buildName": "",
+            "buildStatus": "",
+            "ignoreUnverifiedSSLPeer": false,
+            "includeBuildNumberInKey": false,
+            "projectKey": "",
+            "prependParentProjectKey": false,
+            "disableInprogressNotification": false,
+            "considerUnstableAsSuccess": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.p4.review.ApproveNotifier",
+            "$class": "org.jenkinsci.plugins.p4.review.ApproveNotifier",
+            "includeUser": "false",
+            "credential": "",
+            "review": "${P4_REVIEW}",
+            "status": "REVIEW",
+            "description": "Updated by Jenkins. Build: ${BUILD_URL}"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.p4.client.CleanupNotifier",
+            "$class": "org.jenkinsci.plugins.p4.client.CleanupNotifier",
+            "deleteClient": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.p4.tagging.TagNotifier",
+            "$class": "org.jenkinsci.plugins.p4.tagging.TagNotifier",
+            "rawLabelName": "jenkins-test1",
+            "rawLabelDesc": "Jenkins post-build label.",
+            "onlyOnSuccess": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.p4.publish.PublishNotifier",
+            "$class": "org.jenkinsci.plugins.p4.publish.PublishNotifier",
+            "includeUser": "false",
+            "credential": "",
+            "": [
+                "0",
+                "0"
+            ],
+            "workspace": {
+                "charset": "none",
+                "name": "jenkins-${NODE_NAME}-${JOB_NAME}-${EXECUTOR_NUMBER}",
+                "pinHost": false,
+                "spec": {
+                    "allwrite": false,
+                    "clobber": true,
+                    "compress": false,
+                    "locked": false,
+                    "modtime": false,
+                    "rmdir": false,
+                    "line": "LOCAL",
+                    "type": "WRITABLE",
+                    "streamName": "",
+                    "view": "",
+                    "changeView": "",
+                    "serverID": "",
+                    "backup": true
+                },
+                "stapler-class": "org.jenkinsci.plugins.p4.workspace.ManualWorkspaceImpl",
+                "$class": "org.jenkinsci.plugins.p4.workspace.ManualWorkspaceImpl"
+            },
+            "publish": {
+                "description": "Shelved by Jenkins. Build: ${BUILD_TAG}",
+                "onlyOnSuccess": false,
+                "delete": false,
+                "modtime": false,
+                "revert": false,
+                "paths": "",
+                "stapler-class": "org.jenkinsci.plugins.p4.publish.ShelveImpl",
+                "$class": "org.jenkinsci.plugins.p4.publish.ShelveImpl"
+            }
+        },
+        {
+            "stapler-class": "com.dabsquared.gitlabjenkins.publisher.GitLabCommitStatusPublisher",
+            "$class": "com.dabsquared.gitlabjenkins.publisher.GitLabCommitStatusPublisher",
+            "name": "jenkins",
+            "markUnstableAsSuccess": false
+        },
+        {
+            "stapler-class": "com.chikli.hudson.plugin.naginator.NaginatorPublisher",
+            "$class": "com.chikli.hudson.plugin.naginator.NaginatorPublisher",
+            "rerunIfUnstable": false,
+            "maxSchedule": "0",
+            "checkRegexp": false,
+            "regexpForRerun": ""
+        },
+        {
+            "stapler-class": "jenkins.plugins.publish_over_ftp.BapFtpPublisherPlugin",
+            "$class": "jenkins.plugins.publish_over_ftp.BapFtpPublisherPlugin",
+            "publishers": {
+                "configName": "",
+                "verbose": false,
+                "transfers": {
+                    "sourceFiles": "",
+                    "removePrefix": "",
+                    "remoteDirectory": "",
+                    "excludes": "",
+                    "patternSeparator": "[, ]+",
+                    "noDefaultExcludes": false,
+                    "makeEmptyDirs": false,
+                    "flatten": false,
+                    "remoteDirectorySDF": false,
+                    "cleanRemote": false,
+                    "asciiMode": false
+                }
+            },
+            "continueOnError": false,
+            "failOnError": false,
+            "alwaysPublishFromMaster": false
+        },
+        {
+            "stapler-class": "jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin",
+            "$class": "jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin",
+            "publishers": {
+                "configName": "",
+                "verbose": false,
+                "transfers": {
+                    "sourceFiles": "",
+                    "removePrefix": "",
+                    "remoteDirectory": "",
+                    "execCommand": "",
+                    "excludes": "",
+                    "patternSeparator": "[, ]+",
+                    "noDefaultExcludes": false,
+                    "makeEmptyDirs": false,
+                    "flatten": false,
+                    "cleanRemote": false,
+                    "remoteDirectorySDF": false,
+                    "execTimeout": "120000",
+                    "usePty": false,
+                    "useAgentForwarding": false,
+                    "useSftpForExec": false
+                }
+            },
+            "continueOnError": false,
+            "failOnError": false,
+            "alwaysPublishFromMaster": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.github.status.GitHubCommitStatusSetter",
+            "$class": "org.jenkinsci.plugins.github.status.GitHubCommitStatusSetter",
+            "": [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+            ],
+            "commitShaSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.BuildDataRevisionShaSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.BuildDataRevisionShaSource"
+            },
+            "reposSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.AnyDefinedRepositorySource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.AnyDefinedRepositorySource"
+            },
+            "contextSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource"
+            },
+            "statusResultSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.ConditionalStatusResultSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.ConditionalStatusResultSource"
+            },
+            "statusBackrefSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.BuildRefBackrefSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.BuildRefBackrefSource"
+            },
+            "errorHandling": false
+        },
+        {
+            "stapler-class": "com.cloudbees.jenkins.GitHubCommitNotifier",
+            "$class": "com.cloudbees.jenkins.GitHubCommitNotifier",
+            "statusMessage": {
+                "content": ""
+            },
+            "resultOnFailure": "FAILURE"
+        },
+        {
+            "stapler-class": "jenkins.plugins.slack.SlackNotifier",
+            "$class": "jenkins.plugins.slack.SlackNotifier",
+            "startNotification": false,
+            "notifySuccess": false,
+            "notifyAborted": false,
+            "notifyNotBuilt": false,
+            "notifyUnstable": false,
+            "notifyRegression": false,
+            "notifyEveryFailure": false,
+            "notifyBackToNormal": false,
+            "notifyFailure": false,
+            "notifyRepeatedFailure": false,
+            "includeTestSummary": false,
+            "includeFailedTests": false,
+            "includeCustomMessage": false,
+            "customMessage": "",
+            "customMessageSuccess": "",
+            "customMessageAborted": "",
+            "customMessageNotBuilt": "",
+            "customMessageUnstable": "",
+            "customMessageFailure": "",
+            "commitInfoChoice": "NONE",
+            "uploadFiles": false,
+            "artifactIncludes": "",
+            "teamDomain": "",
+            "baseUrl": "",
+            "includeUser": "false",
+            "tokenCredentialId": "",
+            "authToken": "",
+            "botUser": false,
+            "iconEmoji": "",
+            "username": "",
+            "room": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.parameterizedtrigger.BuildTrigger",
+            "$class": "hudson.plugins.parameterizedtrigger.BuildTrigger",
+            "configs": {
+                "projects": "",
+                "condition": "SUCCESS",
+                "triggerWithNoParameters": false
+            }
+        },
+        {
+            "stapler-class": "hudson.ivy.IvyBuildTrigger",
+            "$class": "hudson.ivy.IvyBuildTrigger",
+            "ivyFile": "",
+            "ivyPropertiesFile": "",
+            "triggerWhenUnstable": false,
+            "useUpstreamParameters": false
+        },
+        {
+            "stapler-class": "hudson.plugins.ws_cleanup.WsCleanup",
+            "$class": "hudson.plugins.ws_cleanup.WsCleanup",
+            "deleteDirs": false,
+            "cleanWhenSuccess": true,
+            "cleanWhenUnstable": true,
+            "cleanWhenFailure": true,
+            "cleanWhenNotBuilt": true,
+            "cleanWhenAborted": true,
+            "notFailBuild": false,
+            "externalDelete": "",
+            "disableDeferredWipeout": false
+        }
+    ],
+    "Submit": "",
+    "core:apply": "true"
+}

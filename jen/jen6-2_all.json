@@ -1,0 +1,787 @@
+{
+    "enable": true,
+    "description": "",
+    "properties": {
+        "stapler-class-bag": "true",
+        "jenkins-plugin-assembla-AssemblaProjectProperty": {},
+        "it-dockins-dockerslaves-spec-ContainerSetDefinition": {},
+        "sh-hyper-hyperslaves-spec-ContainerSetDefinition": {},
+        "com-coravy-hudson-plugins-github-GithubProjectProperty": {},
+        "io-jenkins-plugins-jobtag-JobTagPublisher": {
+            "JobTag": {}
+        },
+        "hudson-plugins-promoted_builds-JobPropertyImpl": {},
+        "jenkins-branch-RateLimitBranchProperty$JobPropertyImpl": {},
+        "org-jenkinsci-plugins-envinject-EnvInjectJobProperty": {
+            "on": false,
+            "keepJenkinsSystemVariables": true,
+            "keepBuildVariables": true,
+            "overrideBuildParameters": false,
+            "info": {
+                "propertiesFilePath": "",
+                "propertiesContent": "",
+                "scriptFilePath": "",
+                "scriptContent": "",
+                "secureGroovyScript": {
+                    "oldScript": "",
+                    "script": "",
+                    "sandbox": false
+                },
+                "loadFilesFromMaster": false
+            }
+        },
+        "jenkins-model-BuildDiscarderProperty": {
+            "specified": false,
+            "": "0",
+            "strategy": {
+                "daysToKeepStr": "",
+                "numToKeepStr": "",
+                "artifactDaysToKeepStr": "",
+                "artifactNumToKeepStr": "",
+                "stapler-class": "hudson.tasks.LogRotator",
+                "$class": "hudson.tasks.LogRotator"
+            }
+        },
+        "hudson-model-ParametersDefinitionProperty": {
+            "specified": false
+        }
+    },
+    "concurrentBuild": false,
+    "hasCustomQuietPeriod": false,
+    "quiet_period": "5",
+    "hasCustomScmCheckoutRetryCount": false,
+    "scmCheckoutRetryCount": "0",
+    "blockBuildWhenUpstreamBuilding": false,
+    "blockBuildWhenDownstreamBuilding": false,
+    "hasCustomWorkspace": false,
+    "customWorkspace": "",
+    "displayNameOrNull": "",
+    "scm": {
+        "value": "0",
+        "stapler-class": "hudson.scm.NullSCM",
+        "$class": "hudson.scm.NullSCM"
+    },
+    "org-jenkinsci-plugins-buildnamesetter-BuildNameSetter": {
+        "template": "#${BUILD_NUMBER} \"\"<UNIQ>",
+        "descriptionTemplate": "",
+        "runAtStart": true,
+        "runAtEnd": true
+    },
+    "builder": [
+        {
+            "stapler-class": "hudson.plugins.tics.TicsPipelineRun",
+            "$class": "hudson.plugins.tics.TicsPipelineRun"
+        },
+        {
+            "stapler-class": "com.xliic.ci.jenkins.AuditBuilder",
+            "$class": "com.xliic.ci.jenkins.AuditBuilder",
+            "includeUser": "false",
+            "credentialsId": "",
+            "minScore": "75",
+            "platformUrl": "https://platform.42crunch.com",
+            "logLevel": "DEBUG",
+            "repositoryName": "${GIT_URL}",
+            "branchName": "${GIT_LOCAL_BRANCH}",
+            "tagName": "${TAG_NAME}",
+            "prId": "${CHANGE_ID}",
+            "prTargetBranch": "${CHANGE_TARGET}",
+            "defaultCollectionName": "",
+            "rootDirectory": "",
+            "shareEveryone": "OFF"
+        },
+        {
+            "stapler-class": "jenkins.plugins.fogbugz.buildactions.FogbugzLinkBuilder",
+            "$class": "jenkins.plugins.fogbugz.buildactions.FogbugzLinkBuilder"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.aquaserverlessscannerbuildstep.AquaServerlessScannerBuilder",
+            "$class": "org.jenkinsci.plugins.aquaserverlessscannerbuildstep.AquaServerlessScannerBuilder",
+            "codeScanPath": "",
+            "customFlags": "",
+            "onDisallowed": "ignore",
+            "notCompliesCmd": ""
+        }
+    ],
+    "publisher": [
+        {
+            "stapler-class": "hudson.plugins.tics.TicsPipelinePublish",
+            "$class": "hudson.plugins.tics.TicsPipelinePublish"
+        },
+        {
+            "stapler-class": "hudson.tasks.test.AggregatedTestResultPublisher",
+            "$class": "hudson.tasks.test.AggregatedTestResultPublisher",
+            "includeFailedBuilds": false
+        },
+        {
+            "stapler-class": "hudson.tasks.ArtifactArchiver",
+            "$class": "hudson.tasks.ArtifactArchiver",
+            "artifacts": "",
+            "excludes": "",
+            "allowEmptyArchive": false,
+            "onlyIfSuccessful": false,
+            "fingerprint": false,
+            "defaultExcludes": true,
+            "caseSensitive": true,
+            "followSymlinks": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.attention.VolunteerRecorder",
+            "$class": "org.jenkinsci.plugins.attention.VolunteerRecorder"
+        },
+        {
+            "stapler-class": "hudson.tasks.BuildTrigger",
+            "$class": "hudson.tasks.BuildTrigger",
+            "childProjects": "",
+            "threshold": "SUCCESS"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.relution_publisher.configuration.jobs.ArtifactPublisher",
+            "$class": "org.jenkinsci.plugins.relution_publisher.configuration.jobs.ArtifactPublisher"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.forensics.reference.SimpleReferenceRecorder",
+            "$class": "io.jenkins.plugins.forensics.reference.SimpleReferenceRecorder",
+            "referenceJob": "-"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.hugo.HugoGitPublisher",
+            "$class": "io.jenkins.plugins.hugo.HugoGitPublisher",
+            "targetUrl": "",
+            "publishDir": "public",
+            "publishBranch": "master",
+            "includeUser": "false",
+            "credentialsId": "",
+            "authorName": "",
+            "authorEmail": "",
+            "committerName": "suren",
+            "committerEmail": "zxjlwt@126.com",
+            "commitLog": "Auto commit by hugo-plugin."
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.hugo.HugoGitSubmodulePublisher",
+            "$class": "io.jenkins.plugins.hugo.HugoGitSubmodulePublisher",
+            "publishDir": "public",
+            "publishBranch": "master",
+            "includeUser": "false",
+            "credentialsId": "",
+            "authorName": "",
+            "authorEmail": "",
+            "committerName": "suren",
+            "committerEmail": "zxjlwt@126.com",
+            "commitLog": "Auto commit by hugo-plugin."
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.forensics.miner.RepositoryMinerStep",
+            "$class": "io.jenkins.plugins.forensics.miner.RepositoryMinerStep",
+            "scm": ""
+        },
+        {
+            "stapler-class": "com.overops.plugins.jenkins.query.QueryOverOps",
+            "$class": "com.overops.plugins.jenkins.query.QueryOverOps",
+            "applicationName": "${JOB_NAME}",
+            "deploymentName": "${BUILD_NUMBER}",
+            "serviceId": "",
+            "regexFilter": "\"type\":\\\"*(Timer|Logged Warning)",
+            "markUnstable": true,
+            "showPassedGateEvents": false,
+            "printTopIssues": "5",
+            "newEvents": true,
+            "resurfacedErrors": true,
+            "debug": false,
+            "errorSuccess": false,
+            "linkReport": false
+        },
+        {
+            "stapler-class": "de.dentrassi.pm.jenkins.DroneRecorder",
+            "$class": "de.dentrassi.pm.jenkins.DroneRecorder",
+            "serverUrl": "",
+            "includeUser": "false",
+            "credentialsId": "",
+            "channel": "",
+            "artifacts": "",
+            "excludes": "",
+            "defaultExcludes": true,
+            "stripPath": true,
+            "allowEmptyArchive": false,
+            "failsAsUpload": false,
+            "uploadV3": false
+        },
+        {
+            "stapler-class": "org.ow2.clif.jenkins.ClifPublisher",
+            "$class": "org.ow2.clif.jenkins.ClifPublisher",
+            "clifReportDirectory": "report",
+            "chartWidth": "1200",
+            "chartHeight": "600",
+            "distributionSliceSize": "50",
+            "distributionSliceNumber": "15",
+            "statisticalPeriod": "5"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.coverage.CoveragePublisher",
+            "$class": "io.jenkins.plugins.coverage.CoveragePublisher",
+            "applyThresholdRecursively": false,
+            "failUnhealthy": false,
+            "failUnstable": false,
+            "failNoReports": false,
+            "failBuildIfCoverageDecreasedInChangeRequest": false,
+            "skipPublishingChecks": false,
+            "scm": "",
+            "sourceFileResolver": {
+                "level": "NEVER_STORE"
+            },
+            "sourceCodeEncoding": ""
+        },
+        {
+            "stapler-class": "hudson.tasks.junit.JUnitResultArchiver",
+            "$class": "hudson.tasks.junit.JUnitResultArchiver",
+            "testResults": "",
+            "keepLongStdio": false,
+            "healthScaleFactor": "1.0",
+            "allowEmptyResults": false,
+            "skipPublishingChecks": false,
+            "checksName": "",
+            "skipMarkingBuildUnstable": false,
+            "skipOldReports": false
+        },
+        {
+            "stapler-class": "hudson.tasks.JavadocArchiver",
+            "$class": "hudson.tasks.JavadocArchiver",
+            "javadocDir": "",
+            "keepAll": false
+        },
+        {
+            "stapler-class": "com.arkea.satd.stoplightio.StoplightReportPublisher",
+            "$class": "com.arkea.satd.stoplightio.StoplightReportPublisher",
+            "consoleOrFile": "console",
+            "resultFile": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.tics.TicsPublisher",
+            "$class": "hudson.plugins.tics.TicsPublisher",
+            "viewerUrl": "",
+            "ticsPath": "",
+            "includeUser": "false",
+            "credentialsId": "",
+            "checkQualityGate": false,
+            "failIfQualityGateFails": true
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.tattletale.TattletaleReportArchiver",
+            "$class": "org.jenkinsci.plugins.tattletale.TattletaleReportArchiver",
+            "storeDir": "tattletale-report",
+            "keepAll": false
+        },
+        {
+            "stapler-class": "me.automationdomination.plugins.threadfix.ThreadFixPublisher",
+            "$class": "me.automationdomination.plugins.threadfix.ThreadFixPublisher",
+            "appId": "",
+            "q": "",
+            "scanFiles": {
+                "path": ""
+            }
+        },
+        {
+            "stapler-class": "com.navarambh.aiotests.postbuildsteps.AIOTestsResultRecorder",
+            "$class": "com.navarambh.aiotests.postbuildsteps.AIOTestsResultRecorder",
+            "jiraServerUrl": "",
+            "jiraUsername": "",
+            "jiraPassword": "{AQAAABAAAAAQ/fZlPQMegylDoIB1mRQbD8OAvd6yxOLiwJiWDuBCrjY=}",
+            "$redact": [
+                "jiraPassword",
+                "apiKey"
+            ],
+            "jiraInstanceType": "cloud",
+            "apiKey": "{AQAAABAAAAAQU4QImRkDdnzMMsNiWSTtP9aM1kJp3C21rYsVb7cs934=}",
+            "frameworkType": "testng",
+            "resultsFilePath": "",
+            "projectKey": "",
+            "createNewRun": true,
+            "addCaseToCycle": false,
+            "createCase": false,
+            "bddForceUpdateCase": false,
+            "hideDetails": false,
+            "failBuildOnFailure": false
+        },
+        {
+            "stapler-class": "hudson.plugins.japex.JapexPublisher",
+            "$class": "hudson.plugins.japex.JapexPublisher",
+            "includes": "",
+            "trackRegressions": false,
+            "regressionAddress": "",
+            "regressionThreshold": "0.0"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.pitmutation.PitPublisher",
+            "$class": "org.jenkinsci.plugins.pitmutation.PitPublisher",
+            "mutationStatsFile": "",
+            "minimumKillRatio": "0.0",
+            "killRatioMustImprove": false
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.analysis.core.steps.IssuesRecorder",
+            "$class": "io.jenkins.plugins.analysis.core.steps.IssuesRecorder",
+            "toolProxies": {
+                "": "0",
+                "tool": {
+                    "pattern": "",
+                    "skipSymbolicLinks": false,
+                    "reportEncoding": "",
+                    "id": "",
+                    "name": "",
+                    "stapler-class": "io.jenkins.plugins.analysis.warnings.AcuCobol",
+                    "$class": "io.jenkins.plugins.analysis.warnings.AcuCobol"
+                }
+            },
+            "aggregatingResults": false,
+            "enabledForFailure": false,
+            "skipBlames": false,
+            "scm": "",
+            "sourceCodeEncoding": "",
+            "skipPublishingChecks": false,
+            "publishAllIssues": false,
+            "failOnError": false,
+            "trendChartType": "AGGREGATION_TOOLS",
+            "ignoreQualityGate": false,
+            "ignoreFailedBuilds": true,
+            "healthy": "",
+            "unhealthy": "",
+            "minimumSeverity": "LOW"
+        },
+        {
+            "stapler-class": "hudson.tasks.Fingerprinter",
+            "$class": "hudson.tasks.Fingerprinter",
+            "targets": "",
+            "excludes": "",
+            "defaultExcludes": true,
+            "caseSensitive": true
+        },
+        {
+            "stapler-class": "io.sealights.plugins.sealightsjenkins.EndExecutionPostBuildStep",
+            "$class": "io.sealights.plugins.sealightsjenkins.EndExecutionPostBuildStep",
+            "buildSessionId": "${SL_BUILD_SESSION_ID}",
+            "labId": "",
+            "additionalArguments": "",
+            "logLevel": "OFF",
+            "logDestination": "CONSOLE",
+            "logFolder": "${WORKSPACE}/sealights-logs",
+            "logFilename": ""
+        },
+        {
+            "stapler-class": "io.sealights.plugins.sealightsjenkins.RestoreBuildFile",
+            "$class": "io.sealights.plugins.sealightsjenkins.RestoreBuildFile",
+            "shouldRestore": false,
+            "folders": ""
+        },
+        {
+            "stapler-class": "com.flock.plugin.FlockNotifier",
+            "$class": "com.flock.plugin.FlockNotifier",
+            "webhookUrl": "",
+            "notifyOnStart": false,
+            "notifyOnSuccess": false,
+            "notifyOnUnstable": false,
+            "notifyOnAborted": false,
+            "notifyOnFailure": false,
+            "notifyOnNotBuilt": false,
+            "notifyOnRegression": false,
+            "notifyOnBackToNormal": false
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.cloudshell.publisher.CloudShellPublisherControl",
+            "$class": "org.jenkinsci.plugins.cloudshell.publisher.CloudShellPublisherControl"
+        },
+        {
+            "stapler-class": "com.piketec.jenkins.plugins.tpt.publisher.TPTReportPublisher",
+            "$class": "com.piketec.jenkins.plugins.tpt.publisher.TPTReportPublisher"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.crittercism_dsym.CrittercismDsymRecorder",
+            "$class": "org.jenkinsci.plugins.crittercism_dsym.CrittercismDsymRecorder",
+            "apiKey": "",
+            "appID": "",
+            "filePath": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.git.GitPublisher",
+            "$class": "hudson.plugins.git.GitPublisher",
+            "pushOnlyIfSuccess": false,
+            "pushMerge": false,
+            "forcePush": false
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.grading.AutoGrader",
+            "$class": "io.jenkins.plugins.grading.AutoGrader",
+            "configuration": "",
+            "": ""
+        },
+        {
+            "stapler-class": "com.datatheorem.mobileappsecurity.jenkins.plugin.SendBuildToDataTheoremPublisher",
+            "$class": "com.datatheorem.mobileappsecurity.jenkins.plugin.SendBuildToDataTheoremPublisher",
+            "buildToUpload": "",
+            "releaseType": "PRE_PROD",
+            "externalId": "",
+            "mappingFileToUpload": "",
+            "dontUpload": false,
+            "sendBuildDirectlyFromRemote": false,
+            "proxyHostname": "",
+            "proxyPort": "0",
+            "proxyUsername": "",
+            "proxyPassword": "{AQAAABAAAAAQu+DYGN9oSYWAbyB/fn7f9Mx1WtHZ8uzX/m0TaJ51Vlc=}",
+            "$redact": [
+                "proxyPassword",
+                "applicationCredentialPassword"
+            ],
+            "proxyUnsecuredConnection": false,
+            "applicationCredentialUsername": "",
+            "applicationCredentialPassword": "{AQAAABAAAAAQCjDFnIs67BCCmS4nI/XF2JuFltBkcJzCgTNrXV73rOY=}",
+            "applicationCredentialComments": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.nopmdcheck.verifytrac.VerifyTracPublisher",
+            "$class": "org.jenkinsci.plugins.nopmdcheck.verifytrac.VerifyTracPublisher",
+            "tracUrl": "",
+            "user": "",
+            "password": "{AQAAABAAAAAQFbJWUAHp/15/xR2BMBA3elKfjDsYqi9a6aXCC7Z6cxw=}",
+            "$redact": "password",
+            "ticketPattern": "#(\\d+)",
+            "thresholdTicketCount": "10"
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.azureeventgridnotifier.AzureEventGridNotifier",
+            "$class": "org.jenkinsci.plugins.azureeventgridnotifier.AzureEventGridNotifier",
+            "topicEndpoint": "",
+            "topicKey": "{AQAAABAAAAAQnAwb+4cFub+GaTnDROAtiwJwRl99powWE9Cv+13ZQB4=}",
+            "$redact": "topicKey",
+            "subjectTemplate": "",
+            "messageTemplate": "",
+            "sendNotificationOnStart": "false",
+            "notifyOnEveryBuild": "false"
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.documentuploader.CNDocumentUploader",
+            "$class": "hudson.plugins.collabnet.documentuploader.CNDocumentUploader",
+            "connectionFactory": {
+                "url": "",
+                "username": "",
+                "password": "{AQAAABAAAAAQLojEWsfwEvfQNtBRW29iBkc4hCqgWjj6JdP1vbSS4Gg=}",
+                "$redact": "password"
+            },
+            "project": "",
+            "uploadPath": "",
+            "description": "",
+            "filePatterns": {
+                "value": ""
+            },
+            "includeBuildLog": "false"
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.filerelease.CNFileRelease",
+            "$class": "hudson.plugins.collabnet.filerelease.CNFileRelease",
+            "connectionFactory": {
+                "url": "",
+                "username": "",
+                "password": "{AQAAABAAAAAQr0appMb8vzaRVnxseiZu031XQyZF5+cNGEgPFs8Bah8=}",
+                "$redact": "password"
+            },
+            "project": "",
+            "pkg": "",
+            "release": "",
+            "overwrite": "false",
+            "filePatterns": {
+                "value": ""
+            }
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.tracker.CNTracker",
+            "$class": "hudson.plugins.collabnet.tracker.CNTracker",
+            "connectionFactory": {
+                "url": "",
+                "username": "",
+                "password": "{AQAAABAAAAAQ5hFHn2iVFJ95bgayEEh3bsAQ87hvszh13UbdeC1MMR4=}",
+                "$redact": "password"
+            },
+            "project": "",
+            "tracker": "",
+            "title": "",
+            "assignUser": "",
+            "priority": "P1",
+            "attachLog": "false",
+            "alwaysUpdate": "false",
+            "closeOnSuccess": "false",
+            "release": ""
+        },
+        {
+            "stapler-class": "jenkins.plugins.fogbugz.casecreator.FogbugzCaseCreator",
+            "$class": "jenkins.plugins.fogbugz.casecreator.FogbugzCaseCreator"
+        },
+        {
+            "stapler-class": "hudson.tasks.Mailer",
+            "$class": "hudson.tasks.Mailer",
+            "recipients": "",
+            "notifyEveryUnstableBuild": true,
+            "sendToIndividuals": false
+        },
+        {
+            "stapler-class": "hudson.plugins.emailext.ExtendedEmailPublisher",
+            "$class": "hudson.plugins.emailext.ExtendedEmailPublisher",
+            "project_disabled": false,
+            "project_from": "",
+            "project_recipient_list": "$DEFAULT_RECIPIENTS",
+            "project_replyto": "$DEFAULT_REPLYTO",
+            "project_content_type": "default",
+            "project_default_subject": "$DEFAULT_SUBJECT",
+            "project_default_content": "$DEFAULT_CONTENT",
+            "project_attachments": "",
+            "project_attach_buildlog": "0",
+            "project_presend_script": "$DEFAULT_PRESEND_SCRIPT",
+            "postsendScript": "$DEFAULT_POSTSEND_SCRIPT",
+            "project_save_output": false,
+            "project_triggers": {
+                "stapler-class": "hudson.plugins.emailext.plugins.trigger.FailureTrigger",
+                "$class": "hudson.plugins.emailext.plugins.trigger.FailureTrigger",
+                "recipientProviders": {
+                    "stapler-class": "hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider",
+                    "$class": "hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider"
+                },
+                "recipientList": "",
+                "replyTo": "$PROJECT_DEFAULT_REPLYTO",
+                "contentType": "project",
+                "subject": "$PROJECT_DEFAULT_SUBJECT",
+                "body": "$PROJECT_DEFAULT_CONTENT",
+                "attachmentsPattern": "",
+                "attachBuildLog": "0"
+            }
+        },
+        {
+            "stapler-class": "com.helixteamhub.plugin.jenkins.HelixTeamHubNotifier",
+            "$class": "com.helixteamhub.plugin.jenkins.HelixTeamHubNotifier",
+            "accountKey": "",
+            "enterProjectAndRepositoryIdsManually": false,
+            "projectId": "",
+            "repositoryId": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.pblupload.PblUploader",
+            "$class": "hudson.plugins.collabnet.pblupload.PblUploader",
+            "hostUrl": "",
+            "user": "",
+            "key": "{AQAAABAAAAAQyh86FfJuFxQpwhnPTll3U2+JGAdzHlRP2agsxSj/cmU=}",
+            "$redact": "key",
+            "project": "",
+            "pubOrPriv": "false",
+            "filePatterns": {
+                "value": ""
+            },
+            "path": "",
+            "preserveLocal": false,
+            "removePrefixRegex": "",
+            "force": "false",
+            "description": "",
+            "comment": ""
+        },
+        {
+            "stapler-class": "io.loader.jenkins.LoaderPublisher",
+            "$class": "io.loader.jenkins.LoaderPublisher",
+            "testId": "-1",
+            "errorUnstableThreshold": "",
+            "errorFailedThreshold": "",
+            "responseTimeUnstableThreshold": "",
+            "responseTimeFailedThreshold": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.orchestrate.BuildNotifier",
+            "$class": "hudson.plugins.collabnet.orchestrate.BuildNotifier"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.worktile.PCBuildNotifier",
+            "$class": "io.jenkins.plugins.worktile.PCBuildNotifier",
+            "overview": "",
+            "defaultSummary": "",
+            "resultURL": "",
+            "specifiedWorkItems": ""
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.worktile.PCDeployNotifier",
+            "$class": "io.jenkins.plugins.worktile.PCDeployNotifier",
+            "releaseName": "",
+            "environmentName": "",
+            "releaseUrl": "",
+            "specifiedWorkItems": ""
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.CucumberPostBuild",
+            "$class": "io.jenkins.plugins.CucumberPostBuild",
+            "itmsAddress": "",
+            "reportFolder": "",
+            "reportFormat": "Cucumber Json",
+            "jiraProjectKey": "",
+            "jiraTicketKey": "",
+            "itmsCycleName": ""
+        },
+        {
+            "stapler-class": "jenkins.plugins.fogbugz.notifications.FogbugzNotifier",
+            "$class": "jenkins.plugins.fogbugz.notifications.FogbugzNotifier"
+        },
+        {
+            "stapler-class": "com.qualys.plugins.pc.PCScanNotifier",
+            "$class": "com.qualys.plugins.pc.PCScanNotifier",
+            "platform": "US_PLATFORM_1",
+            "apiServer": "",
+            "includeUser": [
+                "false",
+                "false",
+                "false"
+            ],
+            "credsId": "",
+            "useProxy": false,
+            "proxyServer": "",
+            "proxyPort": "",
+            "proxyCredentialsId": "",
+            "scanName": "[job_name]_jenkins_build_[build_number]",
+            "useHost": true,
+            "hostIp": "0.0.0.0",
+            "useEc2": false,
+            "ec2Id": "Provide Instance Id",
+            "ec2ConnDetails": "",
+            "runConnector": false,
+            "createAuthRecord": false,
+            "unixAndWindowsCredentials": "windows",
+            "unixAndWindowsCredentialsId": "",
+            "scannerName": "External",
+            "optionProfile": "",
+            "selectedPolicies": "",
+            "failByStateAndCriticality": false,
+            "stateFail": true,
+            "stateError": false,
+            "stateExceptions": false,
+            "criticalitySerious": true,
+            "criticalityUrgent": true,
+            "criticalityCritical": true,
+            "criticalityMedium": true,
+            "criticalityMinimal": true,
+            "failByAuth": false,
+            "excludedCriteria": false,
+            "excludedCids": "",
+            "pollingInterval": "2",
+            "vulnsTimeout": "60*2"
+        },
+        {
+            "stapler-class": "io.sealights.plugins.sealightsjenkins.buildsteps.cli.BuildStatusNotifier",
+            "$class": "io.sealights.plugins.sealightsjenkins.buildsteps.cli.BuildStatusNotifier",
+            "enabled": true,
+            "reportTitle": "CI Status",
+            "buildSessionId": "${SL_BUILD_SESSION_ID}",
+            "additionalArguments": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.collabnet.UC4CreatePackage",
+            "$class": "hudson.plugins.collabnet.UC4CreatePackage",
+            "server": "",
+            "clientId": "",
+            "user": "",
+            "department": "",
+            "password": "",
+            "$redact": "password",
+            "packageName": "",
+            "applicationName": "",
+            "components": {
+                "name": "",
+                "path": "",
+                "codeLink": "",
+                "project": ""
+            },
+            "owner": "",
+            "folderName": "",
+            "packageType": ""
+        },
+        {
+            "stapler-class": "org.jenkinsci.plugins.github.status.GitHubCommitStatusSetter",
+            "$class": "org.jenkinsci.plugins.github.status.GitHubCommitStatusSetter",
+            "": [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+            ],
+            "commitShaSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.BuildDataRevisionShaSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.BuildDataRevisionShaSource"
+            },
+            "reposSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.AnyDefinedRepositorySource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.AnyDefinedRepositorySource"
+            },
+            "contextSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource"
+            },
+            "statusResultSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.ConditionalStatusResultSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.ConditionalStatusResultSource"
+            },
+            "statusBackrefSource": {
+                "stapler-class": "org.jenkinsci.plugins.github.status.sources.BuildRefBackrefSource",
+                "$class": "org.jenkinsci.plugins.github.status.sources.BuildRefBackrefSource"
+            },
+            "errorHandling": false
+        },
+        {
+            "stapler-class": "com.cloudbees.jenkins.GitHubCommitNotifier",
+            "$class": "com.cloudbees.jenkins.GitHubCommitNotifier",
+            "statusMessage": {
+                "content": ""
+            },
+            "resultOnFailure": "FAILURE"
+        },
+        {
+            "stapler-class": "eu.cqse.teamscale.jenkins.upload.TeamscaleUploadBuilder",
+            "$class": "eu.cqse.teamscale.jenkins.upload.TeamscaleUploadBuilder",
+            "url": "",
+            "includeUser": "false",
+            "credentialsId": "",
+            "teamscaleProject": "",
+            "partition": "",
+            "uploadMessage": "",
+            "includePattern": "",
+            "reportFormatId": "",
+            "revision": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.twitter.TwitterPublisher",
+            "$class": "hudson.plugins.twitter.TwitterPublisher",
+            "onlyOnFailureOrRecovery": "(System Default)",
+            "includeUrl": "(System Default)"
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.worktile.WTBuildNotifier",
+            "$class": "io.jenkins.plugins.worktile.WTBuildNotifier",
+            "overview": "",
+            "defaultSummary": "",
+            "resultURL": "",
+            "specifiedWorkItems": ""
+        },
+        {
+            "stapler-class": "io.jenkins.plugins.worktile.WTDeployNotifier",
+            "$class": "io.jenkins.plugins.worktile.WTDeployNotifier",
+            "releaseName": "",
+            "environmentName": "",
+            "releaseUrl": "",
+            "specifiedWorkItems": ""
+        },
+        {
+            "stapler-class": "hudson.plugins.ws_cleanup.WsCleanup",
+            "$class": "hudson.plugins.ws_cleanup.WsCleanup",
+            "deleteDirs": false,
+            "cleanWhenSuccess": true,
+            "cleanWhenUnstable": true,
+            "cleanWhenFailure": true,
+            "cleanWhenNotBuilt": true,
+            "cleanWhenAborted": true,
+            "notFailBuild": false,
+            "externalDelete": "",
+            "disableDeferredWipeout": false
+        }
+    ],
+    "Submit": "",
+    "core:apply": "true"
+}

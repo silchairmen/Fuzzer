@@ -68,7 +68,7 @@ class Scanner:
         # 파일이 있는지 확인하고, 있으면 덮어씌움, 참고로 파일은 Scanning_result_유저이름.csv임
 
         result_file_name = f"Scanning_all_param_result_vm{self.vm_num}_{self.j_id}.csv"
-        make_csv_file(Param_col, self.result_Frame, result_file_name)
+        make_csv_file(Param_col, self.result_Frame, result_file_name, 'Action')
 
     #PATH 경로를 전부다 들어가서 response code를 가져옴
     def get_response(self):

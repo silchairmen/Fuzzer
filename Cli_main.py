@@ -128,7 +128,7 @@ if __name__ == "__main__":
             elif E_options==2:
                 e.reflected_xss_check()
             elif E_options==3:
-                print("준비중")
+                e.stored_xss_check()
             elif E_options==4:
                 e.xxe_vlun_check()
             else:
@@ -136,10 +136,11 @@ if __name__ == "__main__":
                 break
 
         elif tool_option == 3:
-            b_options = build_option(chrome,url,port,id,pw,job_name)
+            b_options = build_option(chrome,url,port,id,pw,job_name,vm_num)
             B_options = int(input("1. Add build options\n"
                                   "2. Add after build\n"
                                   "3. delete all options\n"
+                                  "4. Add all options one que\n"
                                   "Number = "))
 
             if B_options==1:
@@ -148,6 +149,10 @@ if __name__ == "__main__":
                 b_options.add_option_after_build()
             elif B_options==3:
                 b_options.delete_all_options()
+            elif B_options==4:
+                b_options.add_build_step_all()
+            else:
+                exit(0)
 
 
         elif tool_option == 4:

@@ -1,15 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from time import time
 from src.func import *
 from tqdm import tqdm
+import requests as req
+import json
 
 class build_option:
-    def __init__(self,chrome, url, port, id, pw, job_name):
+    def __init__(self,chrome, url, port, id, pw, job_name,vm_num):
         self.chrome = chrome
+        self.url = url
+        self.job_name = job_name
         self.full_url = f"http:{url}:{port}/job/{job_name}/configure"
         self.id = id
         self.pw = pw
+        self.vm_num = vm_num
 
         #접근 후 로그인
         self.chrome.get(self.full_url)
@@ -114,3 +116,46 @@ class build_option:
         apply_btn.click()
         sleep(1)
         print("options are deleted")
+
+
+    #담당자 : 이소연
+    def add_option_all(self):
+        url = f'http://{self.url}/login?from=%2F'
+        login_url = f'http://{self.url}/j_spring_security_check'
+        crumbI_url = f'http://{self.url}/crumbIssuer/api/json'
+        job_config_url = f"http://{self.url}/job/{self.job_name}/configSubmit"
+
+        session = req.session()
+
+        set_data = {}
+        with open(f"../jen/jen{self.vm_num}_all.json", "r") as f:
+            set_data = json.load(f)
+
+        # 로그인
+        def login():
+            session.get(url)
+            login_data = {
+                "j_username": "admin",
+                "j_password": "admin",
+                "from": "/",
+                "Submit": ""
+            }
+            res = session.post(login_url, data=login_data)
+            res.raise_for_status()
+
+        # job_config
+        def job_config(crumb):
+            res = session.post(job_config_url, data={"Jenkins-Crumb": crumb, "json": json.dumps(set_data)})
+            res.raise_for_status()
+
+        def main():
+            login()
+            Jenkins_crumb_json = session.get(crumbI_url, cookies=(session.cookies.get_dict()))
+            Jenkins_crumb_json = json.loads(Jenkins_crumb_json.text)
+
+            crumb = Jenkins_crumb_json['crumb']
+            set_data["Jenkins-Crumb"] = Jenkins_crumb_json['crumb']
+
+            job_config(crumb)
+
+        main()

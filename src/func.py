@@ -97,10 +97,13 @@ def check_dir(dir_name):
             print("permission error")
 
 
-def make_csv_file(col_name, low_data, file_name):
+def make_csv_file(col_name, low_data, file_name, sort_item=""):
     while True:
         #받아온 데이터로 데이터 프레임을 만든다
         Data_frame = pd.DataFrame(low_data, columns=col_name)
+
+        if sort_item!="":
+            Data_frame = Data_frame.sort_values(sort_item)
 
         check_dir("csv")
         file_list = os.listdir("./csv/")
